@@ -57,7 +57,7 @@
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">해양 관측사</span>“여기는 <b>남반구</b>이고, 해안은 화면의 <b>오른쪽</b>, 바다는 왼쪽입니다. 바람이 표층 해수를 직각으로 밀어내는 <b><span data-view="law:에크만 수송">에크만 수송</span></b>을 떠올리면서, 바람의 방향과 세기를 바꿔 보세요. 표층 수온이 어떻게 달라지는지 지켜보시고요.”</div></div>
           <figure class="hero-art"><img src="img/upwelling.webp" alt="사막 해안과 바다를 블록처럼 잘라 낸 모형. 먼바다는 짙은 파란색이고 해안 가까운 바다는 초록빛을 띠며, 그 위에 고깃배와 그물, 멸치 떼, 바다로 뛰어드는 펠리컨이 보인다. 앞면 단면에서는 따뜻한 표층수가 먼바다 쪽에서 두껍고 해안으로 갈수록 얇아지며, 아래의 찬 바닷물이 대륙붕 비탈을 따라 해안 쪽으로 솟아오른다." width="900" height="900" loading="lazy"><figcaption><b>세계 최대 멸치 어장은 바람이 끌어올린 찬물 위에 있습니다</b> 페루 앞바다는 적도와 가까운데도 바닷물이 차갑고, 해안 가까운 바다는 플랑크톤 때문에 초록빛을 띱니다. 바람의 영향으로 표층수가 먼바다 쪽으로 빠져나가면, 그 빈자리를 깊은 곳의 차갑고 영양염이 많은 물이 채우며 올라오기 때문입니다. 이렇게 올라온 영양염으로 플랑크톤이 늘고, 그것을 먹는 멸치 떼가 모입니다. <span class="art-note">⚠ 바다 깊이와 해안 지형의 높낮이를 크게 과장했습니다.</span></figcaption></figure>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="a-c-up" width="900" height="580"></canvas></div>
+            <div class="canvas-wrap studio" data-kind-pos="br"><canvas id="a-c-up" width="900" height="580"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">바람이 불어가는 방향<span class="val" id="a-wd-val">동 (90°)</span></div>
@@ -121,6 +121,14 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkA"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>연안 용승 장면은</b> 바람의 방향과 세기로 용승의 세기를 정하고, 바닷물 온도·영양염·물고기의 양이 모두 이 값에 따라 곧바로 바뀌도록 했습니다. <b>실제</b> 플랑크톤과 물고기는 시간이 걸려 늘거나 줄고, 어획량은 고기를 잡는 양(남획)에도 크게 좌우됩니다. 1970년대 초 페루 앞바다의 멸치 어획량이 크게 줄어든 데에도 엘니뇨와 남획이 함께 작용했다고 봅니다.</li>
+      <li><b>워커 순환 장면은</b> 무역풍의 세기 하나로 동태평양의 수온 편차, 수온 약층의 기울기, 남방 진동 지수가 모두 정해지고, 바다의 깊이와 수온 약층의 기울기를 과장해 그렸습니다. <b>실제</b> 엘니뇨는 바다와 대기가 서로 영향을 주고받으며 몇 달에 걸쳐 발달하고, 대략 2~7년 간격으로 불규칙하게 나타나며, 세기와 수온이 가장 크게 오르는 곳도 해마다 다릅니다.</li>
+      <li><b>원격 영향 장면은</b> 지역마다 강수량 변화가 엘니뇨의 세기에 정확히 비례하도록 정했습니다. <b>실제</b> 원격 영향은 계절에 따라 다르고, 같은 세기의 엘니뇨라도 해마다 나타나는 정도가 달라서 ‘그런 경향이 있다’는 확률로 이야기합니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 정한 값입니다. 바탕 개념: 2022 개정 교육과정 지구과학 교과서의 대기와 해양의 상호 작용(용승, 엘니뇨와 라니냐) 내용. 이 소단원의 실제 자료 카드: 미국 해양대기청(NOAA) 기후예측센터(CPC) 해양 엘니뇨 지수(ONI) — 열대 동태평양 Niño 3.4 해역(남위 5° ~ 북위 5°, 서경 120~170°) 해수면 온도 편차의 3개월 이동 평균, 1950 ~ 2026.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -173,7 +181,7 @@
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">자료실장</span>“이제 지구 바깥이 아닌 요인들을 한 화면에서 견줘 봅시다. 화산 분출은 <b>자연적 요인 가운데 지구 내적 요인</b>입니다. 화산이 뿜어낸 <b>황산염 에어로졸</b>은 성층권에서 햇빛을 되쏘아 지구를 식힙니다. 그런데 사람이 태운 화석 연료가 덜 탄 채 나오는 <b>검댕</b>(<b>인위적 요인</b>)은 빛을 <b>흡수</b>해서 주변 공기를 데웁니다. 같은 ‘에어로졸’인데 부호가 반대예요.”</div></div>
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">자료실장</span>“기후를 밀고 당기는 힘의 크기는 <b><span data-view="law:복사강제력">복사 강제력</span></b>(W/m²)으로 잽니다. 양수면 데우는 쪽, 음수면 식히는 쪽이에요. 종류와 양을 바꿔 가며 부호가 뒤집히는지 직접 확인해 보세요. 비교하려고 지구 바깥의 자연적 요인인 <b>태양 활동</b>도 함께 넣어 두었습니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-force" width="900" height="420"></canvas></div>
+            <div class="canvas-wrap studio" data-kind="model calc"><canvas id="b-c-force" width="900" height="420"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">에어로졸의 종류<span class="val" id="b-atype-val">황산염(반사형)</span></div>
@@ -226,6 +234,14 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkB"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>밀란코비치 장면은</b> 이심률·자전축 기울기·세차 운동으로 바뀌는 여름 일사량을 어림식 하나로 계산하고, 일사량이 줄면 빙하가 곧바로 늘어나도록 했습니다. <b>실제로</b> 일사량은 위도와 계절마다 따로 계산해야 하고, 빙하는 수천 년에 걸쳐 천천히 자라며, 얼음의 반사와 이산화 탄소 농도의 변화 같은 되먹임이 변화를 키웁니다. 최근 수십만 년 동안 빙하기가 약 10만 년마다 되풀이된 까닭에 대해서는 아직 의견이 갈립니다.</li>
+      <li><b>에어로졸·태양 활동 장면은</b> 기후 민감도를 0.5 ℃/(W/m²) 하나로 두고, 복사 강제력이 생기면 기온이 곧바로 그만큼 바뀌도록 했습니다. <b>실제</b> 화산이 성층권에 뿜은 에어로졸은 몇 년 안에 대부분 사라지고, 바다가 열을 천천히 받아들이기 때문에 기온은 늦게 반응합니다. 기후 민감도의 값도 연구마다 폭이 있습니다.</li>
+      <li><b>귀인 장면의</b> ‘관측’ 곡선은 실제 기온 기록이 아니라, 온실 기체·에어로졸·화산·태양과 자연 변동을 식으로 더해 만든 곡선이고, 온실 기체의 효과도 이산화 탄소 농도 하나로만 계산합니다. <b>실제</b> 기온 기록은 해마다 더 들쭉날쭉하고, 메테인·아산화 질소 같은 다른 온실 기체도 함께 작용하며, 원인을 가려내는 연구는 여러 기후 모형의 결과를 실제 기록과 견주어 이루어집니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 정한 값입니다(이산화 탄소 농도는 실제 측정값에 가깝게 맞춘 어림값). 바탕 개념: 2022 개정 교육과정 지구과학 교과서의 기후 변화의 자연적 요인과 인위적 요인 내용.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -253,7 +269,7 @@
           <div class="story"><div class="who">👩‍🏫</div><div class="say"><span class="name">과학 자문관</span>“먼저 <b>온실 효과가 무엇인지</b>부터 못을 박읍시다. 지구는 태양 복사를 받은 만큼 <b>지구 복사(적외선)</b>로 내보내며 균형을 잡습니다. 이것이 <b><span data-view="law:복사 평형">복사 평형</span></b>이에요. 그런데 대기가 그 적외선을 얼마쯤 <b>가로채서 다시 지표로 돌려보내면</b> 지표는 더 뜨거워야 균형이 맞습니다.”</div></div>
           <div class="story"><div class="who">👩‍🏫</div><div class="say"><span class="name">과학 자문관</span>“대기를 한 장의 담요라고 보고, 그 담요가 적외선을 붙잡는 비율을 <b>흡수율</b>이라고 합시다. 지금 지구는 약 0.78입니다. 흡수율과 <b>반사율(알베도)</b>을 바꿔 가며 지표 온도를 직접 구해 보세요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-green" width="900" height="450"></canvas></div>
+            <div class="canvas-wrap studio" data-kind="model calc"><canvas id="c-c-green" width="900" height="450"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">대기의 적외선 흡수율<span class="val" id="c-eps-val">0.78</span></div>
@@ -274,7 +290,7 @@
           <div class="story"><div class="who">🧑‍⚖️</div><div class="say"><span class="name">협상 대표</span>“원리는 알겠습니다. 이제 <b>숫자</b>를 주십시오. 해마다 몇 퍼센트입니까?”</div></div>
           <div class="story"><div class="who">👩‍🏫</div><div class="say"><span class="name">과학 자문관</span>“다행히 계산이 간단합니다. 기온 상승은 <b>해마다 얼마나 배출했는가</b>보다 <b>지금까지 모두 합쳐 얼마나 배출했는가</b>에 거의 비례합니다. 누적 배출 1조 t마다 약 0.45 ℃. 그러니 감축률을 넣고 2100년까지 더하기만 하면 됩니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-path" width="900" height="460"></canvas></div>
+            <div class="canvas-wrap studio" data-kind="model calc"><canvas id="c-c-path" width="900" height="460"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">해마다 줄일 비율<span class="val" id="c-rate-val">1.00 %/년</span></div>
@@ -325,6 +341,14 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkC"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>복사 평형 장면은</b> 대기를 한 겹의 판으로 보고, 지구가 받는 햇빛·반사율·대기의 흡수율만으로 지표 온도를 계산합니다. <b>실제</b> 대기는 여러 층으로 되어 있고, 구름과 수증기, 공기의 오르내림(대류)과 증발도 열을 옮기며, 반사율도 구름과 얼음의 양에 따라 바뀝니다.</li>
+      <li><b>배출 경로 장면은</b> 2025년의 이산화 탄소 배출량을 한 해 40 Gt으로 두고, 기온 상승을 ‘누적 배출량 1,000 Gt마다 약 0.45 ℃’라는 관계 하나로 계산합니다. <b>실제</b> 전망에는 메테인 같은 다른 온실 기체, 에어로졸, 기후 되먹임이 함께 들어가며, 이 관계의 값에도 폭이 있습니다.</li>
+      <li><b>해수면 장면은</b> 2100년의 해수면 상승을 기온 상승에 비례하는 직선 식 하나로 정하고, 폭풍 해일의 높이를 한 값으로 고정했으며, 높이를 크게 과장해 그렸습니다. <b>실제로</b> 해수면 상승은 지역마다 다르고(땅이 가라앉는 곳은 더 크게 오름), 빙상이 얼마나 빨리 녹을지에 따라 전망의 폭이 크며, 2100년 뒤에도 오랫동안 계속 오릅니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 정한 값입니다. 바탕 자료: IPCC 제6차 평가 보고서의 누적 배출량과 기온 상승 관계, 2022 개정 교육과정 지구과학 교과서의 지구 온난화와 기후 변화 대응 내용. 이 소단원의 실제 자료 카드: 기상청 날씨누리 과거 관측 일별 자료, 창원(155) 일평균 기온으로 낸 해마다의 여름(6 ~ 8월) 평균.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -372,33 +396,33 @@
 </div>
 
 <button class="theme-toggle" id="themeToggle">라이트 모드</button>
-<script src="../assets/theme.js?v=c3418585"></script>
+<script src="../assets/theme.js?v=b0f7ed73"></script>
 <script src="../assets/scope.js?v=cecf172a"></script>
 <script src="../assets/kit.js?v=94e3bd47"></script>
 <script src="../assets/story.js?v=cd80882e"></script>
 <script src="../assets/quiz.js?v=d1e13494"></script>
-<script src="../assets/lab.js?v=5ab4e410"></script>
+<script src="../assets/lab.js?v=8e2a04e0"></script>
 <script src="../assets/share-config.js?v=57df19a4"></script>
 <script src="../assets/share.js?v=8ebc37fa"></script>
 <script src="../assets/account.js?v=435378ac"></script>
-<script src="episodes.js"></script>
-<script src="worked.js"></script>
-<script src="handoff.js"></script>
-<script src="quiz-items.js"></script>
+<script src="episodes.js?v=49073480"></script>
+<script src="worked.js?v=f23cf470"></script>
+<script src="handoff.js?v=becbc5d4"></script>
+<script src="quiz-items.js?v=b8b88f31"></script>
 <script src="../assets/review.js?v=c07fe051"></script>
 <script src="../assets/peer.js?v=b6f0b008"></script>
 <script src="../assets/qboard.js?v=b3bb8d32"></script>
-<script src="lab-cases.js"></script>
+<script src="lab-cases.js?v=f56de969"></script>
 <script src="../assets/inquiry.js?v=405fc23c"></script>
-<script src="inquiry-items.js"></script>
+<script src="inquiry-items.js?v=5ca31987"></script>
 <script src="../assets/link.js?v=48d3d217"></script>
-<script src="data/oni.js"></script>
-<script src="data/cw155.js"></script>
-<script src="real-cases.js"></script>
+<script src="data/oni.js?v=f7b88780"></script>
+<script src="data/cw155.js?v=03f6a79b"></script>
+<script src="real-cases.js?v=db958489"></script>
 <script src="../assets/precheck.js?v=6e00687c"></script>
-<script src="precheck-items.js"></script>
-<script src="try-items.js"></script>
-<script src="scale-items.js"></script>
+<script src="precheck-items.js?v=9112ee31"></script>
+<script src="try-items.js?v=0a7a0156"></script>
+<script src="scale-items.js?v=ee34efd1"></script>
 <script src="https://wmfsljy-coder.github.io/science-teacher-hub-qtrqwc/assets/video-links.js" defer></script>
 </body>
 </html>

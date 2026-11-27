@@ -70,7 +70,7 @@
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“색을 알아냈으면 그다음은 <b>밝기</b>입니다. 별은 <b>흑체</b>에 가까워서, 표면 1 m²가 1초에 내놓는 에너지는 <b>표면 온도의 네제곱</b>에 비례합니다(<span data-view="law:슈테판-볼츠만 법칙">슈테판·볼츠만 법칙</span>). 여기에 표면적을 곱하면 별 전체가 내놓는 에너지, 곧 <b>광도</b>가 나오지요.”</div></div>
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“그리고 가장 세게 나오는 빛의 파장은 온도에 <b>반비례</b>합니다(<span data-view="law:빈 변위 법칙">빈의 변위 법칙</span>). 그래서 뜨거우면 파랗고 차가우면 붉지요. 두 법칙을 함께 쓰면, 만져 볼 수도 없는 별의 <b>반지름</b>까지 계산할 수 있습니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="a-c-sb" width="900" height="470"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="a-c-sb" width="900" height="470"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">표면 온도<span class="val" id="a-sbt-val">5,800 K</span></div>
@@ -121,6 +121,14 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkA"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 흡수선의 세기가 표면 온도 하나에 따라 정해지는 곡선(교과서 그림의 모양을 본뜬 것)을 씁니다. <b>실제로는</b> 흡수선의 세기는 별 표면의 중력(대기의 압력)과 화학 조성에 따라서도 달라져서, 같은 온도라도 거성과 주계열성의 스펙트럼이 조금 다릅니다.</li>
+      <li><b>모형에서는</b> 별을 완전한 흑체로 보고 광도를 계산하며, 태양의 표면 온도를 5,800 K로 어림합니다. <b>실제로는</b> 별의 빛은 흡수선 때문에 흑체 곡선과 조금 다르고, 태양의 표면 온도는 약 5,778 K입니다. 분광형을 가르는 온도 경계값도 교과서와 자료마다 조금씩 다릅니다.</li>
+      <li><b>모형에서는</b> H-R도에 이름난 별 몇 개와 내가 옮기는 점 하나만 찍고, 주계열 띠의 폭은 보기 좋게 정했습니다. <b>실제로는</b> 별 수천 개를 찍으면 대부분이 주계열에 모이고, 가까운 별 가운데에는 어두운 적색 왜성이 가장 많습니다. 밝은 별만 고르면 거성이 실제보다 많아 보이는 치우침이 생깁니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 이 소단원의 실제 자료 카드: 유럽 우주국(ESA) 히파르코스 목록(1997, CDS VizieR I/239)의 B−V 색지수와 시차로 구한 절대 등급, 색지수 → 온도는 Ballesteros(2012) 근사식. 이야기 화면의 별 값은 대표 어림값이고, 그 밖의 수치는 수업용으로 정한 값입니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 별의 분광형, 흑체 복사, H-R도.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -149,7 +157,7 @@
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">전파 관측 담당</span>“성운 안에서는 두 힘이 겨룹니다. 안쪽으로 당기는 <b>중력</b>과, 기체가 퍼지려는 <b>압력</b>. 중력이 이겨야 수축이 시작되고, 그래야 별이 됩니다. 압력은 <b>온도</b>가 높을수록 세지고, 중력은 <b>밀도</b>가 높을수록 세집니다.”</div></div>
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">전파 관측 담당</span>“중력이 이기려면 성운이 적어도 얼마나 무거워야 하는지, 그 최소 질량을 <b><span data-view="law:진스 불안정성">진스 질량</span></b>이라고 합니다. 지금 보고 있는 성운 덩어리의 질량은 <b>태양 질량의 1,000배</b>예요. 진스 질량이 이보다 작아지면 수축이 시작됩니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-jeans" width="900" height="460"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="b-c-jeans" width="900" height="460"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">성운의 온도<span class="val" id="b-jt-val">100 K</span></div>
@@ -169,7 +177,7 @@
         <section class="scene" data-title="주계열에서 얼마나 버티나">
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“중심 온도가 1,000만 K를 넘으면 <b>수소 핵융합</b>이 시작되고, 그때부터 별은 <b>주계열성</b>입니다. 별의 일생 가운데 가장 긴 시기이지요. 그런데 무거운 별일수록 연료도 많지만 <b>훨씬 더 헤프게</b> 씁니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-life" width="900" height="460"></canvas></div>
+            <div data-kind="calc" class="canvas-wrap studio"><canvas id="b-c-life" width="900" height="460"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">별의 질량 (태양 = 1)<span class="val" id="b-m-val">4.0 배</span></div>
@@ -217,6 +225,15 @@
         </section>
       </div>
       <div id="life-star"></div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 성운을 온도와 밀도가 고른 기체 덩어리 하나로 보고, 진스 질량을 표준식(평균 분자량 2.3)으로 계산합니다. <b>실제로는</b> 분자운은 덩어리지고 가는 실 모양으로 얽혀 있으며, 그 안의 빽빽한 곳에서 별이 생깁니다. 자기장과 난류도 수축을 막기 때문에 진스 질량은 기준선으로만 씁니다.</li>
+      <li><b>모형에서는</b> 주계열 수명을 ‘100억 년 × 질량⁻²·⁵’이라는 어림식 하나로 계산합니다. <b>실제로는</b> 질량–광도 관계는 질량에 따라 달라서, 아주 무겁거나 아주 가벼운 별에서는 실제 수명과 몇 배까지 차이가 납니다.</li>
+      <li><b>모형에서는</b> 별의 마지막을 태어날 때의 질량 하나로 정하고, 경계를 태양 질량의 약 8배·약 25배로 둡니다. <b>실제로는</b> 경계값은 연구에 따라 다릅니다. 별이 살면서 항성풍으로 잃는 질량, 짝별과 주고받는 물질, 화학 조성에 따라서도 마지막 모습이 달라집니다.</li>
+      <li><b>모형에서는</b> H-R도 위의 진화 경로를 몇 개의 곧은 선으로 이어 그렸습니다. <b>실제로는</b> 별이 주계열을 떠난 뒤의 경로는 훨씬 복잡하게 꺾이며, 단계마다 머무는 시간도 크게 다릅니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 단순하게 정한 값입니다(성운 온도 10~20 K, 수밀도 10³~10⁶ 개/cm³ 같은 범위는 교과서에 실린 대표값). 바탕: 2022 개정 교육과정 지구과학 교과서의 별의 탄생과 진화.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -244,7 +261,7 @@
         <section class="scene" data-title="허블의 소리굽쇠">
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“정체를 따지기 전에, 보통 은하가 어떻게 생겼는지부터 정리합시다. <span data-view="hubble:heic0406a|허블 울트라 딥 필드 — 사진 한 장에 은하 약 1만 개" data-ask="하늘의 아주 작은 빈 곳(보름달의 100분의 1쯤)을 오래 찍으면 무엇이 보일까?">허블</span>은 은하를 <b>모양</b>만으로 갈랐습니다. 소리굽쇠처럼 생긴 그 그림, 직접 만들어 보세요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-fork" width="900" height="470"></canvas></div>
+            <div data-kind="sketch" class="canvas-wrap studio"><canvas id="c-c-fork" width="900" height="470"></canvas></div>
             <div class="controls">
               <div class="ctrl-group" style="flex:1 1 100%">
                 <div class="ctrl-label">은하의 유형</div>
@@ -281,7 +298,7 @@
           <div class="story"><div class="who">👨‍🔬</div><div class="say"><span class="name">마르텐 슈미트</span>“z = 0.158이 맞다면 3C 273은 아주 멀리 있고, 그렇게 멀리서도 이만큼 밝으려면 <b>우리은하 전체보다 수백 배</b> 밝아야 합니다. 그런 에너지를 어디서 낼까요?”</div></div>
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“별을 아무리 모아도 그 에너지는 안 나옵니다. 남은 답은 <b>중력</b>뿐이에요. 물질이 <b>거대 질량 블랙홀</b> 둘레의 <b>강착 원반</b>으로 빨려 들어가면서, 질량의 약 10 %가 빛으로 바뀝니다. 핵융합(약 0.7 %)보다 훨씬 효율이 높지요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-agn" width="900" height="470"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="c-c-agn" width="900" height="470"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">중심 블랙홀의 질량<span class="val" id="c-bh-val">10⁶·⁰ M☉</span></div>
@@ -310,7 +327,7 @@
           <div class="story"><div class="who">🧑‍🔬</div><div class="say"><span class="name">분광 담당</span>“한 가지 더 이상한 게 있습니다. 3C 273은 밝기가 <b>며칠 사이에</b> 눈에 띄게 달라져요. 은하는 지름이 10만 광년이나 되는데, 그렇게 큰 것이 며칠 만에 한꺼번에 밝아졌다 어두워질 수 있나요?”</div></div>
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“없습니다. 신호는 아무리 빨라도 <b>빛의 속도</b>를 넘지 못하니까요. 한 천체가 통째로 밝기를 바꾸려면 한쪽 끝의 소식이 반대쪽 끝까지 가야 합니다. 그러니 그 천체의 크기는 <b>밝기가 변하는 데 걸리는 시간 × 빛의 속도</b>보다 클 수 없습니다. 이것만으로 크기를 잴 수 있어요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-var" width="900" height="450"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="c-c-var" width="900" height="450"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">밝기가 눈에 띄게 변하는 데 걸리는 시간<span class="val" id="c-var-val">10.0 일</span></div>
@@ -336,6 +353,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkC"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 은하 모양을 편평도와 팽대부 비율 두 값으로 만들고, Sa·Sb·Sc를 백분율 경계로 가릅니다. <b>실제로는</b> 허블 분류는 원래 사진을 눈으로 보고 정하는 것이어서 숫자 경계가 없습니다. 또 같은 은하라도 보는 방향에 따라 둥글게도, 납작하게도 보입니다.</li>
+      <li><b>모형에서는</b> 중심핵의 광도를 강착 원반의 효율 10 %와 에딩턴 광도의 어림식으로 계산합니다. <b>실제로는</b> 효율은 블랙홀이 얼마나 빨리 도는지, 원반이 어떤 상태인지에 따라 달라집니다.</li>
+      <li><b>모형에서는</b> 세이퍼트 은하·전파 은하·퀘이사를 단추 하나로 고릅니다. <b>실제로는</b> 이들이 같은 종류의 중심핵을 다른 방향과 밝기에서 본 것이라는 설명(통합 모형)이 널리 쓰이지만, 이것만으로 모든 차이가 설명되지는 않습니다.</li>
+      <li><b>모형에서는</b> ‘밝기가 변하는 데 걸린 시간 × 빛의 속도’를 중심부의 크기로 보여 줍니다. <b>실제로는</b> 이 값은 크기의 최댓값(상한)일 뿐이고, 실제로 빛나는 부분은 이보다 작을 수 있습니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 3C 273의 적색 편이 z = 0.158은 실제 관측값이고, 우리은하 전체의 광도는 약 2×10¹⁰ L☉로 어림했습니다. 그 밖의 그림 수치는 수업용으로 정한 값입니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 외부 은하의 분류와 특이 은하.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -362,7 +388,7 @@
         <section class="scene" data-title="선이 밀려 있다">
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">우주론 담당</span>“먼저 속도를 재는 법부터. 실험실에서 수소의 Hα 선은 <b>656.3 nm</b>에 있습니다. 은하에서 온 빛에서는 이 선이 더 긴 파장에 나타나지요. 길어진 비율이 <b><span data-view="law:적색편이">적색 편이</span> z</b>이고, 속도가 빛의 속도보다 훨씬 느릴 때 <b>후퇴 속도 = z × 빛의 속도</b>입니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="d-c-z" width="900" height="440"></canvas></div>
+            <div data-kind="calc" class="canvas-wrap studio"><canvas id="d-c-z" width="900" height="440"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">관측된 Hα 선의 파장<span class="val" id="d-lam-val">656.3 nm</span></div>
@@ -378,7 +404,7 @@
         <section class="scene" data-title="멀수록 빠르다">
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">우주론 담당</span>“은하단 다섯 곳의 <b>거리</b>와 <b>후퇴 속도</b>입니다. 직선의 기울기 <b>H₀</b>(허블 상수)를 움직여 자료에 가장 잘 맞춰 보세요. 이 기울기 하나에서 <b>우주의 나이</b>가 바로 나옵니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="d-c-hub" width="900" height="470"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="d-c-hub" width="900" height="470"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">허블 상수 H₀<span class="val" id="d-h0-val">40 km/s/Mpc</span></div>
@@ -414,7 +440,7 @@
           </div>
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">우주론 담당</span>“원자가 만들어지면서 자유로워진 빛은 아직도 우주를 돌아다닙니다. 그동안 공간이 늘어난 만큼 <b>파장도 늘어났지요</b>. 그때 3,000 K 였던 빛이 지금은 몇 K로 보일까요? <b><span data-view="law:빈 변위 법칙">빈의 변위 법칙</span></b>을 다시 꺼낼 차례입니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="d-c-cmb" width="900" height="440"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="d-c-cmb" width="900" height="440"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">그때 이후 우주가 커진 배율<span class="val" id="d-exp-val">1 배 (지금)</span></div>
@@ -458,6 +484,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkD"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 후퇴 속도를 ‘v = z × 빛의 속도’로 계산합니다. <b>실제로는</b> 이 식은 z가 작을 때만 맞는 어림식이라, z가 1에 가깝거나 그보다 큰 먼 은하에는 그대로 쓸 수 없습니다.</li>
+      <li><b>모형에서는</b> 은하단 다섯 곳의 거리와 속도를 어림값으로 찍고, 우주의 나이를 1/H₀로 구합니다. <b>실제로는</b> 은하단 자체의 운동 때문에 자료는 직선에서 조금씩 벗어납니다. 1/H₀는 팽창 속도가 늘 같았다고 볼 때의 값이고, 실제 나이(약 138억 년)는 물질과 암흑 에너지의 비율까지 넣어 계산합니다. H₀ 값도 재는 방법에 따라 약 67과 약 73 km/s/Mpc로 갈려, 그 까닭을 두고 연구가 이어지고 있습니다.</li>
+      <li><b>모형에서는</b> 은하를 고른 격자의 마디마다 하나씩 놓고, 은하의 크기와 간격을 보기 쉽게 정했습니다. <b>실제로는</b> 은하는 고르게 퍼져 있지 않고 은하단과 거대한 빈 공간이 그물처럼 얽혀 있으며, 은하 사이의 거리는 은하 크기의 수십 배에 이르기도 합니다.</li>
+      <li><b>모형에서는</b> 대폭발 뒤 우주가 식어 가는 과정을 몇 단계의 그림으로 나누고, 입자 수의 비는 교과서 값을 본떴습니다. <b>실제로는</b> 급팽창이 일어난 시각(10⁻³⁶초 무렵)과 규모는 모형에 따라 다르고, 암흑 물질과 암흑 에너지의 정체는 아직 밝혀지지 않았습니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 이 소단원의 실제 자료 카드: Pantheon+ Ia형 초신성 자료(Scolnic 외 2022) — 적색 편이 0.01~0.08인 499개. 수소 Hα 선의 기준 파장 656.3 nm, 우주 배경 복사 2.7 K는 측정값이고, 은하단 다섯 곳의 거리·속도는 어림값입니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 허블–르메트르 법칙과 대폭발 우주론.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -506,35 +541,35 @@
 </div>
 
 <button class="theme-toggle" id="themeToggle">라이트 모드</button>
-<script src="../assets/theme.js?v=c3418585"></script>
+<script src="../assets/theme.js?v=b0f7ed73"></script>
 <script src="../assets/scope.js?v=cecf172a"></script>
 <script src="../assets/kit.js?v=94e3bd47"></script>
 <script src="../assets/story.js?v=cd80882e"></script>
 <script src="../assets/quiz.js?v=d1e13494"></script>
-<script src="../assets/lab.js?v=5ab4e410"></script>
+<script src="../assets/lab.js?v=8e2a04e0"></script>
 <script src="../assets/share-config.js?v=57df19a4"></script>
 <script src="../assets/share.js?v=8ebc37fa"></script>
 <script src="../assets/account.js?v=435378ac"></script>
 <script src="../assets/life-kit.js?v=138042b2"></script>
-<script src="life-items.js"></script>
-<script src="episodes.js"></script>
-<script src="worked.js"></script>
-<script src="handoff.js"></script>
-<script src="quiz-items.js"></script>
+<script src="life-items.js?v=f63847e7"></script>
+<script src="episodes.js?v=86ead238"></script>
+<script src="worked.js?v=59589e94"></script>
+<script src="handoff.js?v=6ca12472"></script>
+<script src="quiz-items.js?v=57a068b1"></script>
 <script src="../assets/review.js?v=c07fe051"></script>
 <script src="../assets/peer.js?v=b6f0b008"></script>
 <script src="../assets/qboard.js?v=b3bb8d32"></script>
-<script src="lab-cases.js"></script>
+<script src="lab-cases.js?v=07df4640"></script>
 <script src="../assets/inquiry.js?v=405fc23c"></script>
-<script src="inquiry-items.js"></script>
+<script src="inquiry-items.js?v=3398eea6"></script>
 <script src="../assets/link.js?v=48d3d217"></script>
-<script src="data/hr-stars.js"></script>
-<script src="data/hubble-sn.js"></script>
-<script src="real-cases.js"></script>
+<script src="data/hr-stars.js?v=67045130"></script>
+<script src="data/hubble-sn.js?v=67508120"></script>
+<script src="real-cases.js?v=a5105a62"></script>
 <script src="../assets/precheck.js?v=6e00687c"></script>
-<script src="precheck-items.js"></script>
-<script src="try-items.js"></script>
-<script src="scale-items.js"></script>
+<script src="precheck-items.js?v=55ec60fe"></script>
+<script src="try-items.js?v=38d54c1d"></script>
+<script src="scale-items.js?v=5b2481ab"></script>
 <script src="https://wmfsljy-coder.github.io/science-teacher-hub-qtrqwc/assets/video-links.js" defer></script>
 </body>
 </html>

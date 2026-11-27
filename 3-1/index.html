@@ -182,6 +182,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkA"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 행성의 위치를 케플러 궤도(J2000 궤도 요소)로만 계산하고, 행성끼리 서로 끌어당기는 효과(섭동)는 넣지 않았습니다. <b>실제로는</b> 섭동 때문에 궤도가 조금씩 바뀌어, 방향이 바뀌는 날(유)이 계산과 하루 이틀 어긋날 수 있습니다.</li>
+      <li><b>모형에서는</b> 천구 화면에서 황도 위아래(황위) 방향을 보기 쉽게 세로로 늘려 그렸습니다. <b>실제로는</b> 역행하며 그리는 고리는 이보다 훨씬 납작하고, 해마다 모양이 다릅니다.</li>
+      <li><b>모형에서는</b> 일주 운동 화면은 천구 적도 위의 별(적위 0°)을 위도 36.5°에서 본 것으로 계산했고, 대기와 지평선의 장애물은 넣지 않았습니다. <b>실제로는</b> 지평선 가까이에서는 대기가 빛을 굴절시켜 별이 실제보다 조금 높게 보이므로, 계산보다 몇 분 일찍 뜨고 늦게 집니다. 산이나 건물이 있으면 보이는 시각은 더 줄어듭니다.</li>
+      <li><b>모형에서는</b> 주전원 모형은 이심률을 살린 채 주전원 반지름 하나만 바꿀 수 있게 만들었습니다. <b>실제로는</b> 프톨레마이오스 체계는 원만으로 관측을 맞추기 위해 이심원, 대심(등각속도점) 같은 장치를 덧붙여 썼습니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 이 소단원의 실제 자료 카드: NASA 제트추진연구소(JPL) Horizons 시스템 — 지구 중심에서 본 화성의 적경·적위·겉보기 등급·거리, 2024-07-01~2025-07-01(5일 간격). 궤도 계산에는 J2000 궤도 요소를 썼습니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 행성의 겉보기 운동, 지구 중심설과 태양 중심설.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -210,7 +219,7 @@
           <div class="story"><div class="who">👩‍🏫</div><div class="say"><span class="name">지도 교사</span>“<b>이각</b>은 지구에서 볼 때 행성이 태양에서 떨어져 보이는 각거리입니다. 내행성은 이각이 아무리 커져도 한계가 있어요. 지구에서 그은 시선이 행성의 궤도에 <b>접할 때</b>가 그 한계입니다.”</div></div>
           <div class="story"><div class="who">👩‍🏫</div><div class="say"><span class="name">지도 교사</span>“궤도를 원으로 어림하면 계산이 아주 단순해집니다. 행성의 궤도 반지름을 움직여 보세요. 접선이 만드는 각이 곧 <b>최대 이각</b>입니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-elong" width="900" height="440"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="b-c-elong" width="900" height="440"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">행성의 궤도 반지름<span class="val" id="b-a-val">0.55 AU</span></div>
@@ -315,6 +324,14 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkB"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 행성의 궤도를 완전한 원으로 어림해 최대 이각을 sin⁻¹(행성 궤도 반지름 ÷ 지구 궤도 반지름)으로 계산합니다. <b>실제로는</b> 궤도가 타원이라 최대 이각은 그때마다 조금씩 다릅니다. 금성은 궤도가 거의 원이라 45°~47° 사이로 계산값과 가깝지만, 이심률이 큰 수성은 18°~28° 사이에서 크게 달라집니다.</li>
+      <li><b>모형에서는</b> 관측 막대는 해가 6시에 뜨고 18시에 지는 날(춘분·추분 무렵)로 단순하게 잡았습니다. <b>실제로는</b> 해가 뜨고 지는 시각은 계절과 위도에 따라 달라집니다. 또 황도가 지평선과 이루는 각이 계절마다 달라서, 이각이 같아도 행성이 지평선 위로 올라오는 높이가 다릅니다.</li>
+      <li><b>모형에서는</b> 금성의 겉보기 크기를 반지름 6,052 km를 거리로 나누어 구하고, 모든 날짜의 모양을 볼 수 있다고 둡니다. <b>실제로는</b> 외합 부근의 금성은 태양과 거의 같은 방향에 있어 관측하기 어렵고, 내합 부근도 태양 가까이에서 아주 가는 초승달 모양으로만 보입니다. 금성의 모양은 몇 달에 걸쳐 천천히 바뀌므로, 모양 변화를 제대로 보려면 관측을 오래 이어 가야 합니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 계산한 값입니다(금성 반지름 6,052 km 등). 관측 시각 표의 기본 여섯 줄은 교과서(비상교육 지구과학) 156쪽 표에서 옮겼습니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 내행성과 외행성의 위치 관계, 금성의 위상 변화.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -383,7 +400,7 @@
           <div class="story"><div class="who">🧑‍🎓</div><div class="say"><span class="name">동아리 2학년</span>“교점 가까이에서 삭이 되면 일식이라는 건 알겠어요. 그런데 4월 8일은 해가 완전히 가려졌고 10월 2일은 반지가 남았어요. 같은 달, 같은 해인데요.”</div></div>
           <div class="story"><div class="who">👩‍🏫</div><div class="say"><span class="name">지도 교사</span>“달도 지구도 <b>원이 아니라 타원</b> 궤도를 돕니다. 달이 가까우면 크게 보이고 멀면 작게 보이죠. 태양도 마찬가지고요. <b>달이 태양보다 크게 보이면 개기, 작게 보이면 금환</b>입니다. 두 거리를 움직여 직접 만들어 보세요. 본그림자가 지표에 만드는 띠의 폭까지 계산해 줍니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-shadow" width="900" height="470"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="c-c-shadow" width="900" height="470"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">지구에서 달까지<span class="val" id="c-dm-val">380,700 km</span></div>
@@ -462,6 +479,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkC"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 백도면의 기울기와 천체의 크기, 달까지의 거리를 알아보기 쉽게 과장해 그렸습니다. <b>실제로는</b> 달까지의 거리는 지구 지름의 약 30배이고, 5.1°는 아주 얕은 기울기입니다. 그래서 달의 그림자는 지구를 조금만 비껴가도 지구에 닿지 않습니다.</li>
+      <li><b>모형에서는</b> 식의 달력은 삭망월 29.5306일과 교점월 27.2122일 두 주기만 쓰고, 달과 지구의 공전 속도는 늘 일정하다고 둡니다. <b>실제로는</b> 궤도가 타원이라 공전 속도가 바뀌므로, 모형의 날짜는 실제 식 날짜와 하루 안팎 어긋날 수 있습니다.</li>
+      <li><b>모형에서는</b> 식이 일어나는 한계(식한)를 일식 황위 1.4°, 월식 1.0°라는 한 가지 값으로 둡니다. <b>실제로는</b> ‘반드시 일어나는 한계’와 ‘일어날 수도 있는 한계’가 따로 있어서, 경계 가까이에서는 모형이 틀립니다(2024년 9월 18일의 아주 작은 부분 월식이 그런 경우입니다).</li>
+      <li><b>모형에서는</b> 본그림자를 달·태양·지구를 공으로 본 원뿔로 계산하고, 그림자가 지표에 수직으로 닿는다고 둡니다. <b>실제로는</b> 본그림자가 지표에 비스듬히 닿는 곳에서는 띠가 더 넓어지고, 지구의 자전 때문에 그림자가 지표를 지나가는 속도도 곳마다 달라집니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 삭망월 29.5306일, 교점월 27.2122일, 달 반지름 1,737 km, 태양 반지름 696,000 km, 지구 반지름 6,378 km를 썼습니다. 2024년 4월 8일 개기 일식과 2024년 10월 2일 금환 일식은 실제로 일어난 식입니다. 그 밖의 그림 수치는 수업용으로 정한 값입니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 일식과 월식, NASA 공개 일식 자료.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -510,32 +536,32 @@
 </div>
 
 <button class="theme-toggle" id="themeToggle">다크 모드</button>
-<script src="../assets/theme.js?v=c3418585"></script>
+<script src="../assets/theme.js?v=b0f7ed73"></script>
 <script src="../assets/scope.js?v=cecf172a"></script>
 <script src="../assets/kit.js?v=94e3bd47"></script>
 <script src="../assets/story.js?v=cd80882e"></script>
 <script src="../assets/quiz.js?v=d1e13494"></script>
-<script src="../assets/lab.js?v=5ab4e410"></script>
+<script src="../assets/lab.js?v=8e2a04e0"></script>
 <script src="../assets/share-config.js?v=57df19a4"></script>
 <script src="../assets/share.js?v=8ebc37fa"></script>
 <script src="../assets/account.js?v=435378ac"></script>
-<script src="episodes.js"></script>
-<script src="worked.js"></script>
-<script src="handoff.js"></script>
-<script src="quiz-items.js"></script>
+<script src="episodes.js?v=00fc989c"></script>
+<script src="worked.js?v=1a020e1f"></script>
+<script src="handoff.js?v=8cd03a20"></script>
+<script src="quiz-items.js?v=1b89df2c"></script>
 <script src="../assets/review.js?v=c07fe051"></script>
 <script src="../assets/peer.js?v=b6f0b008"></script>
 <script src="../assets/qboard.js?v=b3bb8d32"></script>
-<script src="lab-cases.js"></script>
+<script src="lab-cases.js?v=50803a47"></script>
 <script src="../assets/inquiry.js?v=405fc23c"></script>
-<script src="inquiry-items.js"></script>
+<script src="inquiry-items.js?v=bcc0c879"></script>
 <script src="../assets/link.js?v=48d3d217"></script>
-<script src="data/mars-2024.js"></script>
-<script src="real-cases.js"></script>
+<script src="data/mars-2024.js?v=a51637ac"></script>
+<script src="real-cases.js?v=907c2fca"></script>
 <script src="../assets/precheck.js?v=6e00687c"></script>
-<script src="precheck-items.js"></script>
-<script src="try-items.js"></script>
-<script src="scale-items.js"></script>
+<script src="precheck-items.js?v=4378231c"></script>
+<script src="try-items.js?v=66dbb661"></script>
+<script src="scale-items.js?v=65d064da"></script>
 <script src="https://wmfsljy-coder.github.io/science-teacher-hub-qtrqwc/assets/video-links.js" defer></script>
 </body>
 </html>

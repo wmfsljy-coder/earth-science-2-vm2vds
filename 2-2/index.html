@@ -140,6 +140,15 @@
         </section>
       </div>
       <div class="info-card jinhae" style="margin:14px 0;border-left:5px solid #f472b6">📍 <b>우리 동네 진해에서는 — 진해의 화성암</b><br>진해 일대에는 여러 화성암이 함께 있습니다. 진해만 연안의 태백동·경화동·석동·자은동·풍호동 낮은 땅은 <b>화강암</b>(약 7,460만 년 전), 자은동 시루봉~장천동·북부동·제덕동에는 <b>화강섬록암</b>(약 9,020만 년 전)이 있습니다. 화산 활동으로 생긴 <b>웅산안산암</b>(약 9,710만 년 전)과 안민·여좌 화산쇄설암, 그리고 훨씬 늦게 생긴 <b>천자봉 현무암</b>(약 1,000만 년 전)도 있습니다.<br><b>🤔 화강암·화강섬록암·안산암·현무암을 ‘마그마가 식은 곳(땅속 깊이/땅 위)’과 ‘SiO₂ 함량(많음/적음)’으로 나누면 각각 어느 칸에 들어갈까요? 결정이 큰 암석은 어느 것일까요?</b><br><span style="font-size:12px;color:var(--mist)">출처: <a href="https://data.kigam.re.kr/data/RP-62475" target="_blank" rel="noopener">한국지질자원연구원 「진해·동두말도폭 지질조사보고서」(2021)</a> · <a href="https://ko.wikipedia.org/wiki/%EC%B0%BD%EC%9B%90%EC%8B%9C%EC%9D%98_%EC%A7%80%EC%A7%88" target="_blank" rel="noopener">위키백과 「창원시의 지질」(보고서 인용)</a></span></div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 맨틀 암석의 용융 곡선과 땅속 온도 곡선을 실제 실험값의 모양만 따온 단순한 선으로 그렸습니다. <b>실제로는</b> 용융 곡선은 깊이에 따라 휘어 있고, 암석에 물이 얼마나 들어 있느냐에 따라 위치가 크게 달라집니다. 땅속 온도도 장소(해령·섭입대·오래된 대륙)마다 다릅니다.</li>
+      <li><b>모형에서는</b> 물 공급을 켜고 끄는 단추 하나로 나타내고, 조건이 맞으면 ‘녹는다’로 판정합니다. <b>실제로는</b> 섭입하는 판에서 물이 빠져나오는 깊이와 양은 판의 온도와 나이에 따라 달라지고, 맨틀은 통째로 녹지 않고 일부만 녹습니다(부분 용융).</li>
+      <li><b>모형에서는</b> 결정 크기를 ‘깊이의 제곱에 비례하는 냉각 시간’으로 어림하고, 이름을 SiO₂ 함량의 경계값으로만 가릅니다. <b>실제로는</b> 결정 크기는 깊이만으로 정해지지 않고, 마그마 덩어리의 크기와 둘레 암석의 온도, 들어 있던 물의 양에 따라서도 크게 달라집니다. 화성암을 분류할 때도 SiO₂ 말고 알칼리 원소의 양이나 광물 조성을 함께 보며, 경계값도 분류 체계마다 조금씩 다릅니다.</li>
+      <li><b>모형에서는</b> 분출 양식을 SiO₂ 함량·온도·가스 양으로 계산한 점성과 폭발 지수만으로 정합니다. <b>실제로는</b> 화도(마그마가 올라오는 통로)의 모양, 마그마가 올라오는 속도, 둘레의 지하수도 함께 작용합니다. 점성이 낮은 현무암질 마그마도 바닷물이나 지하수를 만나면 폭발적으로 분출하기도 합니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 단순하게 정한 값이며, 곡선과 식은 실제 측정값의 경향만 본떴습니다. 섭입대 삽화는 판의 두께, 물방울과 화산의 크기가 실제 비율이 아닌 모식도입니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 마그마의 생성과 화성암, 지구과학 교사용 교과서 오개념 지도.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -198,7 +207,7 @@
           <div class="story"><div class="who">🧑‍🎓</div><div class="say"><span class="name">나</span>“마그마 옆이면 얼마나 멀리까지 변하나요? 1 km? 10 km?”</div></div>
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">지구과학 선생님</span>“그게 재미있어. <b>관입한 마그마 덩어리가 클수록</b> 변성대가 넓어져. 직접 재 보렴.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-aur" width="900" height="450"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="b-c-aur" width="900" height="450"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">관입한 마그마 덩어리의 반지름<span class="val" id="b-size-val">300 m</span></div>
@@ -220,7 +229,7 @@
         <section class="scene" data-title="순환을 직접 돌려 보기">
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">지구과학 선생님</span>“마지막 물음이 남았지. ‘앞으로 무엇이 될까.’ 답은 <b>무엇이든 될 수 있다</b> 야. 암석은 한 번 만들어지면 끝이 아니라, 지구 시스템 안에서 <b>돌고 돈단다.</b> 직접 돌려 보렴.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-cycle" width="900" height="490"></canvas></div>
+            <div data-kind="sketch" class="canvas-wrap studio"><canvas id="b-c-cycle" width="900" height="490"></canvas></div>
             <div class="controls">
               <div class="ctrl-group" style="flex:1 1 100%">
                 <div class="ctrl-label">이 돌에게 일어날 일을 고르세요</div>
@@ -263,6 +272,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkB"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 변성암의 이름을 온도와 깊이의 곧은 경계선(200·400·600·800 °C, 8 km)으로 잘라 정합니다. <b>실제로는</b> 경계는 곧은 선이 아니라 넓은 띠이고, 같은 온도·압력에서도 원암의 성분과 들어 있는 물의 양에 따라 생기는 광물과 이름이 달라집니다.</li>
+      <li><b>모형에서는</b> 압력을 묻힌 깊이 하나로 나타냅니다. <b>실제로는</b> 사방에서 고르게 누르는 압력과 한 방향으로 더 세게 누르는 힘을 나누어 보아야 합니다. 납작한 광물이 줄을 서는 엽리는 한 방향으로 더 센 힘을 받을 때 잘 생깁니다.</li>
+      <li><b>모형에서는</b> 접촉 변성대의 온도가 관입체에서 멀어질수록 지수 함수 모양으로 떨어진다고 둔 간단한 식을 쓰고, 시간이 지나며 열이 퍼져 나가는 과정은 넣지 않았습니다. <b>실제로는</b> 관입체의 모양, 둘레 암석의 종류, 지하수의 흐름에 따라 열이 퍼지는 거리가 달라지고, 지하수가 열을 훨씬 멀리 나르기도 합니다.</li>
+      <li><b>모형에서는</b> 순환에서 한 번에 한 과정만 일어나고, 걸리는 시간도 대표값 하나로 보여 줍니다. <b>실제로는</b> 걸리는 시간은 경우마다 수십 배씩 차이가 나고, 여러 과정이 겹쳐 일어나기도 합니다. 예를 들어 변성암이 일부만 녹으면 변성암과 화성암이 섞인 듯한 혼성암이 됩니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 단순하게 정한 값입니다. 화단 삽화는 크기 비율이 실제와 다른 모식도입니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 변성 작용과 변성암, 암석의 순환.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -291,7 +309,7 @@
         <section class="scene" data-title="얼마나 빨리 식었나">
           <div class="story"><div class="who">👨‍🏫</div><div class="say"><span class="name">심사 위원</span>“결정 크기를 정하는 건 ‘지표냐 지하냐’가 아니라 <b>얼마나 빨리 식었느냐</b> 하나뿐입니다. 그리고 식는 속도는 <b>마그마 덩어리가 얼마나 두꺼운가</b>에 가장 크게 좌우됩니다. 계산해 보시죠.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-grain" width="900" height="470"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="c-c-grain" width="900" height="470"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">마그마가 채운 공간의 두께<span class="val" id="c-thick-val">600 m</span></div>
@@ -320,7 +338,7 @@
           <div class="story"><div class="who">👨‍🏫</div><div class="say"><span class="name">심사 위원</span>“역시 <b>식는 속도</b>입니다. 천천히 식을수록 기둥이 굵어집니다. 실제 지질공원 세 곳을 놓고 맞춰 보시죠.”</div></div>
           <figure class="hero-art"><img src="img/columns.webp" alt="바닷가 절벽을 블록처럼 잘라 낸 모형. 검은 육각 돌기둥이 빽빽하게 서서 절벽을 이루고, 기둥 머리가 벌집 무늬로 드러나 있다. 절벽 밑에는 파도가 부서지고 떨어져 나온 기둥 토막이 얕은 바다에 흩어져 있으며, 단면에는 기둥이 아래의 오래된 지층 위에 곧게 서 있다." width="900" height="900" loading="lazy"><figcaption><b>바닷가의 육각 돌기둥은 누가 쌓은 것이 아닙니다</b> 제주 중문·대포 해안의 검은 돌기둥은 용암이 굳으면서 스스로 만든 모양입니다. 두껍게 흘러온 현무암질 용암이 식으면서 부피가 줄어들어, 위아래로 길게 갈라진 것입니다. 파도가 그 끝을 깎아 내면서 기둥이 절벽으로 드러났습니다. <span class="art-note">⚠ 돌기둥과 파도, 바위의 크기는 실제 비율이 아닙니다.</span></figcaption></figure>
           <div class="stage-card">
-            <div class="canvas-wrap" style="background:#e4eaf1"><canvas id="c-c-col" width="900" height="600"></canvas></div>
+            <div data-kind-pos="br" data-kind="model calc" class="canvas-wrap" style="background:#e4eaf1"><canvas id="c-c-col" width="900" height="600"></canvas></div>
             <div class="controls">
               <div class="ctrl-group" style="flex:1 1 100%">
                 <div class="ctrl-label">설명할 곳</div>
@@ -345,7 +363,7 @@
         <section class="scene" data-title="지도 위의 지질공원">
           <div class="story"><div class="who">👨‍🏫</div><div class="say"><span class="name">심사 위원</span>“마지막 문제입니다. 지도에서 지질공원을 하나씩 눌러 보시고, 한반도의 돌이 <b>언제 무엇으로</b> 만들어졌는지 큰 흐름을 말해 보세요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-map" width="900" height="600"></canvas></div>
+            <div data-kind-pos="bl" data-kind="sketch" class="canvas-wrap studio"><canvas id="c-c-map" width="900" height="600"></canvas></div>
             <div class="info-card" id="c-map-info">지도의 표식을 눌러 보세요. 여섯 곳을 모두 확인해야 합니다.</div>
           </div>
           <div class="story"><div class="who">👨‍🏫</div><div class="say"><span class="name">심사 위원</span>“이제 시료를 만들어진 방식대로 나눠 보세요.”</div></div>
@@ -368,6 +386,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkC"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 마그마가 식는 시간을 ‘두께의 제곱 ÷ 열확산 계수’로 계산하는 가장 단순한 열전도 모형을 씁니다. <b>실제로는</b> 마그마가 굳을 때 내놓는 열(잠열), 둘레를 도는 지하수, 여러 번 나누어 들어온 마그마 때문에 식는 시간이 크게 달라집니다.</li>
+      <li><b>모형에서는</b> 주상절리 기둥의 굵기를 냉각 시간 하나로 계산하고, 기둥을 고른 육각형으로 그립니다. <b>실제로는</b> 같은 절벽 안에서도 위아래의 기둥 굵기가 다르고(위쪽은 가늘고 불규칙한 경우가 많습니다), 기둥의 단면도 오각형·칠각형 등이 섞여 있습니다.</li>
+      <li><b>모형에서는</b> 지질공원 여섯 곳을 단순하게 그린 지도 위에 점으로만 찍었습니다. <b>실제로는</b> 해안선 모양과 거리 비율은 실제와 다르고, 지질공원은 점이 아니라 넓은 구역입니다. 인증 현황과 구역은 바뀌므로 국가지질공원 누리집에서 최신 정보를 확인해야 합니다.</li>
+      <li><b>모형에서는</b> 시료 하나를 그것이 만들어진 방식 한 가지로 나눕니다. <b>실제로는</b> 한 지역의 돌도 여러 번의 화산 활동이나 변성 작용을 겪은 경우가 많아서, 연대 측정과 둘레 지층과의 관계를 함께 살펴 만들어진 과정을 판단합니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 단순하게 정한 값입니다. 노두·주상절리 삽화는 크기 비율이 실제와 다른 모식도입니다. 이 소단원의 실제 자료 카드: 고생물학 데이터베이스(PBDB) — 대한민국에서 보고된 화석 산출 기록 1,845건을 지질 시대(기)별로 센 값(2026-10-03 받음, CC BY 4.0). 지질공원 정보: 국가지질공원 누리집(기후에너지환경부). 바탕: 2022 개정 교육과정 지구과학 교과서.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -415,31 +442,31 @@
 </div>
 
 <button class="theme-toggle" id="themeToggle">라이트 모드</button>
-<script src="../assets/theme.js?v=c3418585"></script>
+<script src="../assets/theme.js?v=b0f7ed73"></script>
 <script src="../assets/scope.js?v=cecf172a"></script>
 <script src="../assets/kit.js?v=94e3bd47"></script>
 <script src="../assets/story.js?v=cd80882e"></script>
 <script src="../assets/quiz.js?v=d1e13494"></script>
-<script src="../assets/lab.js?v=5ab4e410"></script>
+<script src="../assets/lab.js?v=8e2a04e0"></script>
 <script src="../assets/share-config.js?v=57df19a4"></script>
 <script src="../assets/share.js?v=8ebc37fa"></script>
 <script src="../assets/account.js?v=435378ac"></script>
-<script src="episodes.js"></script>
-<script src="handoff.js"></script>
-<script src="quiz-items.js"></script>
+<script src="episodes.js?v=565d6603"></script>
+<script src="handoff.js?v=faace166"></script>
+<script src="quiz-items.js?v=7d4788f4"></script>
 <script src="../assets/review.js?v=c07fe051"></script>
 <script src="../assets/peer.js?v=b6f0b008"></script>
 <script src="../assets/qboard.js?v=b3bb8d32"></script>
-<script src="lab-cases.js"></script>
+<script src="lab-cases.js?v=f296b166"></script>
 <script src="../assets/inquiry.js?v=405fc23c"></script>
-<script src="inquiry-items.js"></script>
+<script src="inquiry-items.js?v=2bf2135b"></script>
 <script src="../assets/link.js?v=48d3d217"></script>
-<script src="scale-items.js"></script>
-<script src="data/pbdb-korea.js"></script>
-<script src="real-cases.js"></script>
+<script src="scale-items.js?v=964f22e7"></script>
+<script src="data/pbdb-korea.js?v=601fd26a"></script>
+<script src="real-cases.js?v=616c8320"></script>
 <script src="../assets/precheck.js?v=6e00687c"></script>
-<script src="precheck-items.js"></script>
-<script src="try-items.js"></script>
+<script src="precheck-items.js?v=b9b2120a"></script>
+<script src="try-items.js?v=49c920c1"></script>
 <script src="https://wmfsljy-coder.github.io/science-teacher-hub-qtrqwc/assets/video-links.js" defer></script>
 </body>
 </html>

@@ -63,7 +63,7 @@
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">지질 조사관</span>“순서를 읽는 출발점은 <b><span data-view="law:중첩의 법칙">지층 누중의 법칙</span></b>입니다. 아래가 먼저, 위가 나중. 그런데 이 법칙에는 ‘<b>지층이 역전되지 않았다면</b>’이라는 단서가 붙어요. 그러니 먼저 <b>어느 쪽이 위였는지</b>부터 증명해야 합니다.”</div></div>
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">지질 조사관</span>“그 증거가 <b>퇴적구조</b>입니다. 퇴적구조는 퇴적물이 쌓이던 순간의 환경이 굳어 버린 흔적이에요. 먼저 퇴적구조 하나가 어떻게 만들어지는지, <b>입자가 가라앉는 속도</b>부터 계산해 봅시다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="a-c-fall" width="900" height="420"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="a-c-fall" width="900" height="420"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">입자 지름<span class="val" id="a-grain-val">0.500 mm</span></div>
@@ -80,7 +80,7 @@
           </div>
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">지질 조사관</span>“이제 진짜 자를 씁시다. 아래 화면의 지층에는 퇴적구조가 하나씩 들어 있습니다. <b>지층 뒤집기</b>를 켜면 지각 변동으로 역전된 상태가 됩니다. 구조만 보고 <b>어느 쪽이 위(젊은 쪽)</b>인지 판정해 보세요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="a-c-updown" width="900" height="400"></canvas></div>
+            <div data-kind="sketch" class="canvas-wrap studio"><canvas id="a-c-updown" width="900" height="400"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">퇴적구조</div>
@@ -137,7 +137,7 @@
         <section class="scene" data-title="절벽의 순서를 복원한다">
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">지질 조사관</span>“이제 도구가 다 모였습니다. 절벽 단면의 각 부분을 눌러 증거를 확인하세요. <b>자른 쪽이 나중</b>이라는 것, 그리고 <b>남의 조각을 품고 있는 쪽이 나중</b>이라는 것만 기억하면 됩니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="a-c-sec" width="900" height="560"></canvas></div>
+            <div data-kind="sketch" class="canvas-wrap studio"><canvas id="a-c-sec" width="900" height="560"></canvas></div>
             <div class="info-card" id="a-sec-info">절벽 단면에서 알아보고 싶은 부분을 눌러 보세요.</div>
           </div>
           <div class="story"><div class="who">🧑‍🔧</div><div class="say"><span class="name">공사 감독</span>“그런데 아까부터 마음에 걸리는 게 있는데요. 셰일층에서 나온 건 <b>고사리 화석</b>뿐이잖습니까. 화석으로 순서를 따지는 건 ‘<b>동물</b>군천이의 법칙’이라던데, 식물만 나오면 그 법칙은 못 쓰는 거 아닙니까?”</div></div>
@@ -160,6 +160,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkA"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 입자가 가라앉는 속도를 스토크스 법칙 한 가지 식으로 계산하고, 물의 온도와 입자의 모양·밀도는 정해 둔 값으로 둡니다. <b>실제로는</b> 이 식은 아주 고운 입자에만 잘 맞습니다. 굵은 모래는 물의 저항이 달라져 식으로 구한 값보다 훨씬 느리게 가라앉고(지름 1 mm 모래는 초속 10 cm 안팎), 물이 차가울수록 점성이 커져 고운 입자도 더 천천히 가라앉습니다.</li>
+      <li><b>모형에서는</b> 지층마다 퇴적구조가 하나씩 뚜렷하게 들어 있어서, 구조 하나만 보고 위아래를 가립니다. <b>실제로는</b> 절벽의 퇴적구조는 흐릿하거나 일부만 남아 있는 경우가 많아서, 여러 층의 여러 증거를 함께 맞춰 보고 판정합니다.</li>
+      <li><b>모형에서는</b> 기울어진 각도 하나와 물 밖에서 깎인 기간 하나만 정하면 부정합이 만들어지고, 침식 속도는 1년에 0.01 mm로 고정되어 있습니다. <b>실제로는</b> 침식 속도는 지역·기후·암석에 따라 수십 배씩 달라집니다. 또 지층은 한 번 기울기만 하는 것이 아니라 휘어지거나(습곡) 끊어지기도(단층) 하고, 솟아오르고 가라앉는 일이 여러 번 되풀이되기도 합니다.</li>
+      <li><b>모형에서는</b> 절벽 단면을 깨끗한 2차원 그림으로 보여 주고, 지층 두께와 자갈 크기를 보기 쉽게 키웠습니다. <b>실제로는</b> 노두는 풍화되거나 흙·풀에 덮여 일부만 드러나는 일이 많고, 여러 곳의 노두를 이어 붙여서야 전체 순서를 복원할 수 있습니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 그림의 수치는 수업용으로 단순하게 정한 값입니다(지층 다섯 장의 두께 합 200 m, 침식 속도 1년에 0.01 mm 등). 바탕: 2022 개정 교육과정 지구과학 교과서의 지층 누중·수평 퇴적·관입·부정합의 법칙과 퇴적구조, 지구과학 교사용 교과서 오개념 지도.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -188,7 +197,7 @@
           <div class="story"><div class="who">👨‍🔬</div><div class="say"><span class="name">연대 측정실장</span>“원리는 놀랄 만큼 단순합니다. 방사성 원소(<b>모원소</b>)는 저절로 다른 원소(<b>자원소</b>)로 바뀌는데, 그 양이 <b>절반으로 줄어드는 데 걸리는 시간</b>이 늘 일정해요. 그것이 <b>반감기</b>입니다. 온도를 올리든 압력을 주든 바뀌지 않습니다.”</div></div>
           <div class="story"><div class="who">👨‍🔬</div><div class="say"><span class="name">연대 측정실장</span>“그러니 우리가 잴 것은 딱 하나, <b>모원소가 얼마나 남았는가</b>입니다. 남은 비율을 움직여 보면서, 그것이 반감기 몇 번에 해당하는지 확인하세요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-half" width="900" height="450"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="b-c-half" width="900" height="450"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">남아 있는 모원소<span class="val" id="b-left-val">80.00 %</span></div>
@@ -213,7 +222,7 @@
           <div class="story"><div class="who">👨‍🔬</div><div class="say"><span class="name">연대 측정실장</span>“시계는 세 개가 있습니다. 반감기가 <b>5,730년</b>인 ¹⁴C, <b>12억 5천만 년</b>인 ⁴⁰K, <b>44억 7천만 년</b>인 ²³⁸U. 재려는 나이가 반감기에 견주어 <b>너무 길면</b> 모원소가 남지 않아 못 재고, <b>너무 짧으면</b> 자원소가 거의 생기지 않아 못 잽니다.”</div></div>
           <div class="story"><div class="who">🧑‍🎓</div><div class="say"><span class="name">실습 연구원</span>“그러니까 초시계로 한 해를 재려 해도 안 되고, 달력으로 100 m 달리기를 재려 해도 안 된다는 말씀이군요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-pick" width="900" height="440"></canvas></div>
+            <div data-kind="calc" class="canvas-wrap studio"><canvas id="b-c-pick" width="900" height="440"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">시료 고르기</div>
@@ -242,7 +251,7 @@
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">지층 대비 담당</span>“절대연령은 아무 층에서나 잴 수 있는 게 아닙니다. 화산재가 굳은 <b>응회암</b>처럼 <b>짧은 시간에 넓은 지역에 한꺼번에 쌓인 층</b>이라야 값이 제대로 나와요. 그런 층은 멀리 떨어진 두 지역을 잇는 기준, 곧 <b>건층(열쇠층)</b>이 됩니다.”</div></div>
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">지층 대비 담당</span>“가 지역과 나 지역, 두 곳 모두에서 같은 응회암 두 장이 나왔습니다. 아래 응회암은 <b>7,400만 년 전</b>, 위 응회암은 <b>6,900만 년 전</b>. 두 층 사이는 <b>500만 년</b>이라는 뜻이지요. 그런데 그 사이에 쌓인 지층의 두께는 두 지역이 딴판입니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-corr" width="900" height="500"></canvas></div>
+            <div data-kind="model calc" class="canvas-wrap studio"><canvas id="b-c-corr" width="900" height="500"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">조사할 지역</div>
@@ -277,6 +286,15 @@
       </div>
       <div id="life-atom"></div>
       <div class="info-card jinhae" style="margin:14px 0;border-left:5px solid #f472b6">📍 <b>우리 동네 진해에서는 — 진해 암석의 나이</b><br>한국지질자원연구원의 진해 지질조사보고서(2021)에 실린 진해 일대 암석의 절대연령은 이렇습니다: 웅산안산암 약 9,710만 년, 성포리층(퇴적암) 약 9,510만 년, 화강섬록암 약 9,020만 년, 진해만 연안 저지대의 화강암 약 7,460만 년, 천자봉 현무암 약 1,000만 년(K-Ar). 성포리층은 뒤에 마그마가 파고들어(관입) 그 열로 단단한 혼펠스로 바뀌었습니다.<br><b>🤔 절대연령이 없어도 ‘성포리층이 화강섬록암보다 먼저’라는 것을 상대연령의 어떤 법칙으로 알 수 있을까요? 이 암석들은 모두 같은 지질 시대일까요?</b><br><span style="font-size:12px;color:var(--mist)">출처: <a href="https://data.kigam.re.kr/data/RP-62475" target="_blank" rel="noopener">한국지질자원연구원 「진해·동두말도폭 지질조사보고서」(2021)</a> · <a href="https://ko.wikipedia.org/wiki/%EC%B0%BD%EC%9B%90%EC%8B%9C%EC%9D%98_%EC%A7%80%EC%A7%88" target="_blank" rel="noopener">위키백과 「창원시의 지질」(보고서 인용)</a></span></div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 암석이 처음 만들어질 때 자원소가 하나도 없었고, 그 뒤로 모원소와 자원소가 암석 밖으로 드나들지 않았다고 둡니다. <b>실제로는</b> 처음부터 들어 있던 자원소 몫을 따로 빼 주어야 하고, 열이나 풍화로 원소가 빠져나가면 나이가 틀리게 나옵니다. 예를 들어 ⁴⁰K가 붕괴해 생긴 아르곤은 기체라서, 암석이 다시 뜨거워지면 빠져나가 나이가 실제보다 젊게 나옵니다.</li>
+      <li><b>모형에서는</b> ¹⁴C 연대를 남은 비율과 반감기만으로 바로 계산합니다. <b>실제로는</b> 대기 속 ¹⁴C의 비율이 시대마다 조금씩 달랐기 때문에, 계산한 값을 나이테 같은 다른 기록과 견주어 보정한 뒤에 씁니다.</li>
+      <li><b>모형에서는</b> ‘반감기의 1/50~10배’ 안이면 잴 수 있다고 판정합니다. <b>실제로는</b> 이 범위는 실제 측정에서 쓰는 어림이며, 잴 수 있는 한계는 장비의 정밀도와 시료의 양에 따라 달라집니다.</li>
+      <li><b>모형에서는</b> 두 응회암 사이의 퇴적 속도를 일정한 값 하나로 두고 ‘두께 = 속도 × 시간’으로 계산합니다. <b>실제로는</b> 퇴적 속도는 시기마다 크게 달라지고, 쌓인 퇴적물은 위에서 눌려 다져지며 두께가 줄어듭니다. 쌓이지 않았거나 깎여 나간 기간이 사이에 끼어 있을 수도 있어서, 이렇게 구한 값은 평균일 뿐입니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 반감기는 ¹⁴C 5,730년, ⁴⁰K 12.5억 년, ²³⁸U 44.7억 년을 썼습니다(교과서에 따라 13억 년, 45억 년으로 반올림하기도 합니다). 시료의 나이와 응회암의 연대, 두 지역의 두께는 수업용으로 정한 값입니다. 바탕: 2022 개정 교육과정 지구과학 교과서의 방사성 동위 원소와 절대연령, 지층 대비.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -304,7 +322,7 @@
         <section class="scene" data-title="46억 년을 1년으로 줄이면">
           <div class="story"><div class="who">🧑‍🔬</div><div class="say"><span class="name">학예사</span>“46억 년은 숫자로는 아무도 못 느낍니다. 그러니 <b>1월 1일 0시에 지구가 태어나고 12월 31일 밤 24시가 지금</b> 인 달력으로 줄여 봅시다. 날짜를 옮기면 그때가 몇 년 전인지 계산해 줍니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-cal" width="900" height="470"></canvas></div>
+            <div data-kind="calc" class="canvas-wrap studio"><canvas id="c-c-cal" width="900" height="470"></canvas></div>
             <div class="controls">
               <div class="ctrl-group">
                 <div class="ctrl-label">달력의 날짜<span class="val" id="c-day-val">1월 1일</span></div>
@@ -374,6 +392,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wkC"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 생물 다양성 곡선을 해양 생물 속(屬)의 수를 본떠 만든 매끈한 곡선으로 그렸습니다. <b>실제로는</b> 화석 기록은 시기마다 들쭉날쭉하고, 화석이 잘 남고 많이 연구된 시기일수록 수가 많아지는 치우침이 있습니다(이 소단원의 실제 자료 카드에서 직접 볼 수 있습니다).</li>
+      <li><b>모형에서는</b> 멸종률을 한 가지 어림값으로 보여 줍니다. <b>실제로는</b> 멸종률은 속으로 세는지 종으로 세는지, 어떤 자료를 쓰는지에 따라 연구마다 크게 다릅니다. 또 다섯 번 말고도 규모가 작은 멸종이 여러 번 있었고, 데본기 후기 멸종처럼 한 번의 사건이 아니라 오랜 기간에 걸친 여러 차례의 멸종으로 보는 의견도 있습니다.</li>
+      <li><b>모형에서는</b> 지질 시대의 경계를 정해진 연대 하나로 두고 46억 년을 1년 달력에 고르게 줄였습니다. <b>실제로는</b> 경계 연대에는 측정 오차가 있고, 국제층서위원회가 새 측정값이 나올 때마다 조금씩 고칩니다. 지구의 나이 약 46억 년도 운석과 달 암석으로 잰 어림값입니다.</li>
+      <li><b>모형에서는</b> ‘살았던 기간 1,000만 년 이하, 대륙 4곳 이상’이면 좋은 표준 화석으로 판정합니다. <b>실제로는</b> 정해진 숫자 기준은 없습니다. 짧은 기간에 살았고 넓게 퍼졌을 뿐 아니라, 개체 수가 많아 화석이 흔하고 알아보기 쉬운 것일수록 좋은 표준 화석이 됩니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 경계 연대는 국제층서위원회 연대표의 값(고생대 시작 5억 3,880만 년 전, 중생대 2억 5,190만 년 전, 신생대 6,600만 년 전)을 썼고, 다양성 곡선과 멸종률은 수업용 모형입니다. 이 소단원의 실제 자료 카드: 고생물학 데이터베이스(Paleobiology Database, PBDB) — 동물(Metazoa) 화석 기록에서 절(stage)마다 센 속(genus) 수와 그 절에서 마지막으로 나온 속의 비율(2026-10-03 받음, CC BY 4.0).</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -421,34 +448,34 @@
 </div>
 
 <button class="theme-toggle" id="themeToggle">라이트 모드</button>
-<script src="../assets/theme.js?v=c3418585"></script>
+<script src="../assets/theme.js?v=b0f7ed73"></script>
 <script src="../assets/scope.js?v=cecf172a"></script>
 <script src="../assets/kit.js?v=94e3bd47"></script>
 <script src="../assets/story.js?v=cd80882e"></script>
 <script src="../assets/quiz.js?v=d1e13494"></script>
-<script src="../assets/lab.js?v=5ab4e410"></script>
+<script src="../assets/lab.js?v=8e2a04e0"></script>
 <script src="../assets/share-config.js?v=57df19a4"></script>
 <script src="../assets/share.js?v=8ebc37fa"></script>
 <script src="../assets/account.js?v=435378ac"></script>
 <script src="../assets/life-kit.js?v=138042b2"></script>
-<script src="life-items.js"></script>
-<script src="episodes.js"></script>
-<script src="worked.js"></script>
-<script src="handoff.js"></script>
-<script src="quiz-items.js"></script>
+<script src="life-items.js?v=f9ab1e9b"></script>
+<script src="episodes.js?v=c70b2fe5"></script>
+<script src="worked.js?v=5e02388d"></script>
+<script src="handoff.js?v=7436dd44"></script>
+<script src="quiz-items.js?v=bd7f26b7"></script>
 <script src="../assets/review.js?v=c07fe051"></script>
 <script src="../assets/peer.js?v=b6f0b008"></script>
 <script src="../assets/qboard.js?v=b3bb8d32"></script>
-<script src="lab-cases.js"></script>
+<script src="lab-cases.js?v=1ca13aef"></script>
 <script src="../assets/inquiry.js?v=405fc23c"></script>
-<script src="inquiry-items.js"></script>
+<script src="inquiry-items.js?v=49c500db"></script>
 <script src="../assets/link.js?v=48d3d217"></script>
-<script src="data/pbdb-diversity.js"></script>
-<script src="real-cases.js"></script>
+<script src="data/pbdb-diversity.js?v=42c1b544"></script>
+<script src="real-cases.js?v=29164b8c"></script>
 <script src="../assets/precheck.js?v=6e00687c"></script>
-<script src="precheck-items.js"></script>
-<script src="try-items.js"></script>
-<script src="scale-items.js"></script>
+<script src="precheck-items.js?v=31aa779f"></script>
+<script src="try-items.js?v=4503b3ac"></script>
+<script src="scale-items.js?v=0922d938"></script>
 <script src="https://wmfsljy-coder.github.io/science-teacher-hub-qtrqwc/assets/video-links.js" defer></script>
 </body>
 </html>
