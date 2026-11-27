@@ -52,6 +52,7 @@
 
         <section class="scene" data-title="온도가 줄을 세운다">
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">애니 점프 캐넌</span>“한 가지만 바꿔 보겠습니다. 별의 <b>표면 온도</b>만 움직이고, 스펙트럼이 어떻게 달라지는지 보세요. 흡수선은 있고 없고가 아니라 <b>얼마나 깊은가</b>로 읽습니다.”</div></div>
+          <div class="pv" data-key="p1-2"><p class="pv-q">별의 표면 온도를 아주 낮은 온도에서 아주 높은 온도까지 올려 가면, 수소 흡수선의 세기는 어떻게 될까요?</p><button class="pv-o" data-why="뜨거울수록 흡수도 늘 것 같지만, 너무 뜨거우면 수소가 이온화되어 빛을 흡수할 전자가 남지 않습니다. 그래서 가장 뜨거운 별에서는 수소 선이 오히려 약합니다.">온도가 높을수록 계속 세진다</button><button class="pv-o" data-ok>세지다가 어느 온도에서 가장 세고, 더 뜨거워지면 다시 약해진다</button><button class="pv-o" data-why="선이 진하면 그 원소가 많다고 생각하기 쉽지만, 대부분 별의 대기 성분은 비슷하고 수소가 가장 많습니다. 선의 세기를 가르는 것은 양이 아니라 표면 온도입니다.">온도와 상관없이 수소가 많은 별일수록 세다</button><p class="pv-a">흡수선의 세기는 원소의 양보다 <b>표면 온도</b>가 정합니다. 수소 선은 중간쯤 온도에서 가장 세고, 더 차가우면 전자가 충분히 들뜨지 못해, 더 뜨거우면 이온화되어 약해집니다. 이 차이로 별을 <b>O B A F G K M</b> 분광형으로 나눕니다.</p></div>
           <div class="stage-card">
             <div class="canvas-wrap studio"><canvas id="a-c-spec" width="900" height="480"></canvas></div>
             <div class="controls">
@@ -69,6 +70,7 @@
         <section class="scene" data-title="온도와 크기, 그리고 밝기">
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“색을 알아냈으면 그다음은 <b>밝기</b>입니다. 별은 <b>흑체</b>에 가까워서, 표면 1 m²가 1초에 내놓는 에너지는 <b>표면 온도의 네제곱</b>에 비례합니다(<span data-view="law:슈테판-볼츠만 법칙">슈테판·볼츠만 법칙</span>). 여기에 표면적을 곱하면 별 전체가 내놓는 에너지, 곧 <b>광도</b>가 나오지요.”</div></div>
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“그리고 가장 세게 나오는 빛의 파장은 온도에 <b>반비례</b>합니다(<span data-view="law:빈 변위 법칙">빈의 변위 법칙</span>). 그래서 뜨거우면 파랗고 차가우면 붉지요. 두 법칙을 함께 쓰면, 만져 볼 수도 없는 별의 <b>반지름</b>까지 계산할 수 있습니다.”</div></div>
+          <div class="pv" data-key="p1-3"><p class="pv-q">표면 온도는 그대로 두고 별의 반지름만 키우면, 별의 광도는 어떻게 될까요?</p><button class="pv-o" data-ok>커진다</button><button class="pv-o" data-why="표면 온도가 같으면 1 m²가 내는 에너지는 같습니다. 하지만 별이 커지면 빛을 내는 넓이가 늘어나 별 전체가 내는 에너지가 많아집니다.">색(표면 온도)이 같으므로 광도도 같다</button><button class="pv-o" data-why="빛이 퍼져 흐려지는 것은 관측자에게서 멀어질 때의 겉보기 밝기 이야기입니다. 광도는 별 전체가 1초에 내는 에너지라서, 빛을 내는 표면이 넓을수록 큽니다.">별이 커지면 빛이 넓게 퍼져서 오히려 어두워진다</button><p class="pv-a">광도는 표면 온도의 네제곱과 표면적(반지름의 제곱)에 비례합니다(<b>슈테판·볼츠만 법칙</b>). 그래서 표면 온도가 낮은 붉은 별도 반지름이 아주 크면 태양보다 훨씬 밝은 <b>적색 거성·초거성</b>이 될 수 있습니다.</p></div>
           <div class="stage-card">
             <div data-kind="model calc" class="canvas-wrap studio"><canvas id="a-c-sb" width="900" height="470"></canvas></div>
             <div class="controls">
@@ -156,6 +158,7 @@
         <section class="scene" data-title="뭉칠 수 있는가">
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">전파 관측 담당</span>“성운 안에서는 두 힘이 겨룹니다. 안쪽으로 당기는 <b>중력</b>과, 기체가 퍼지려는 <b>압력</b>. 중력이 이겨야 수축이 시작되고, 그래야 별이 됩니다. 압력은 <b>온도</b>가 높을수록 세지고, 중력은 <b>밀도</b>가 높을수록 세집니다.”</div></div>
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">전파 관측 담당</span>“중력이 이기려면 성운이 적어도 얼마나 무거워야 하는지, 그 최소 질량을 <b><span data-view="law:진스 불안정성">진스 질량</span></b>이라고 합니다. 지금 보고 있는 성운 덩어리의 질량은 <b>태양 질량의 1,000배</b>예요. 진스 질량이 이보다 작아지면 수축이 시작됩니다.”</div></div>
+          <div class="pv" data-key="p2-2"><p class="pv-q">수밀도는 그대로 두고 성운의 온도를 낮추면, 진스 질량(수축에 필요한 최소 질량)은 어떻게 될까요?</p><button class="pv-o" data-why="별이 뜨거우니 뜨거운 성운에서 생길 것 같지만 반대입니다. 차가운 기체일수록 입자가 느려 흩어지려는 압력이 약하므로, 적은 질량으로도 중력이 이깁니다.">커진다 — 차가운 성운은 뭉치기 어렵다</button><button class="pv-o" data-why="질량도 중요하지만, 수축이 시작되려면 중력이 기체의 압력을 이겨야 합니다. 압력은 온도가 높을수록 세지므로 온도가 진스 질량을 크게 바꿉니다.">온도와는 상관없고 성운의 질량만 중요하다</button><button class="pv-o" data-ok>작아진다</button><p class="pv-a">온도가 낮을수록, 밀도가 높을수록 <b>진스 질량</b>이 작아져 성운이 쉽게 수축합니다. 그래서 별은 차갑고 빽빽한 <b>분자운</b>(암흑 성운)에서 태어나고, 중심이 뜨거워지는 것은 수축하면서 중력 에너지가 열로 바뀐 다음의 일입니다.</p></div>
           <div class="stage-card">
             <div data-kind="model calc" class="canvas-wrap studio"><canvas id="b-c-jeans" width="900" height="460"></canvas></div>
             <div class="controls">
@@ -176,6 +179,7 @@
 
         <section class="scene" data-title="주계열에서 얼마나 버티나">
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“중심 온도가 1,000만 K를 넘으면 <b>수소 핵융합</b>이 시작되고, 그때부터 별은 <b>주계열성</b>입니다. 별의 일생 가운데 가장 긴 시기이지요. 그런데 무거운 별일수록 연료도 많지만 <b>훨씬 더 헤프게</b> 씁니다.”</div></div>
+          <div class="pv" data-key="p2-3"><p class="pv-q">별의 질량을 키우면 주계열 수명은 어떻게 될까요?</p><button class="pv-o" data-ok>짧아진다</button><button class="pv-o" data-why="연료가 많으니 오래 탈 것 같지만, 무거운 별은 중심의 온도와 압력이 높아 연료를 훨씬 빨리 씁니다. 질량이 늘어나는 것보다 광도가 훨씬 더 크게 늘어납니다.">길어진다 — 무거운 별일수록 태울 수소가 많다</button><button class="pv-o" data-why="약 100억 년은 태양 질량 별의 주계열 수명입니다. 별마다 연료를 쓰는 빠르기가 달라 수명도 크게 다릅니다.">질량과 상관없이 모든 별이 약 100억 년이다</button><p class="pv-a">무거운 별은 연료가 많지만 그보다 훨씬 빨리 태우므로 <b>주계열 수명</b>이 짧습니다. 질량이 큰 별일수록 광도가 크고 일생이 짧으며, 가벼운 별은 어둡지만 아주 오래 삽니다.</p></div>
           <div class="stage-card">
             <div data-kind="calc" class="canvas-wrap studio"><canvas id="b-c-life" width="900" height="460"></canvas></div>
             <div class="controls">
@@ -297,6 +301,7 @@
         <section class="scene" data-title="중심이 너무 밝다">
           <div class="story"><div class="who">👨‍🔬</div><div class="say"><span class="name">마르텐 슈미트</span>“z = 0.158이 맞다면 3C 273은 아주 멀리 있고, 그렇게 멀리서도 이만큼 밝으려면 <b>우리은하 전체보다 수백 배</b> 밝아야 합니다. 그런 에너지를 어디서 낼까요?”</div></div>
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“별을 아무리 모아도 그 에너지는 안 나옵니다. 남은 답은 <b>중력</b>뿐이에요. 물질이 <b>거대 질량 블랙홀</b> 둘레의 <b>강착 원반</b>으로 빨려 들어가면서, 질량의 약 10 %가 빛으로 바뀝니다. 핵융합(약 0.7 %)보다 훨씬 효율이 높지요.”</div></div>
+          <div class="pv" data-key="p3-4"><p class="pv-q">블랙홀의 질량은 그대로 두고 1년에 삼키는 물질의 양을 늘리면, 중심핵의 광도는 어떻게 될까요?</p><button class="pv-o" data-why="블랙홀 안에서는 빛이 나오지 못하지만, 빛을 내는 곳은 블랙홀 바깥의 강착 원반입니다. 빨려 드는 물질이 마찰로 아주 뜨거워져 빛을 냅니다.">블랙홀은 빛도 빠져나오지 못하므로 아무리 삼켜도 어둡다</button><button class="pv-o" data-ok>커진다</button><button class="pv-o" data-why="블랙홀 질량은 안정하게 낼 수 있는 광도의 한계(에딩턴 한계)를 정할 뿐, 실제 광도는 물질이 얼마나 빨리 빨려 드는지에 따라 달라집니다.">광도는 블랙홀의 질량만으로 정해진다</button><p class="pv-a">강착 원반으로 빨려 드는 물질 질량의 약 10 %가 빛 에너지로 바뀌므로, 많이 삼킬수록 중심핵이 밝아집니다. 이렇게 중심핵이 은하 전체보다 밝게 빛나는 은하가 <b>활동 은하</b>(세이퍼트 은하·전파 은하·<b>퀘이사</b>)입니다.</p></div>
           <div class="stage-card">
             <div data-kind="model calc" class="canvas-wrap studio"><canvas id="c-c-agn" width="900" height="470"></canvas></div>
             <div class="controls">
@@ -326,6 +331,7 @@
         <section class="scene" data-title="며칠 만에 깜박인다">
           <div class="story"><div class="who">🧑‍🔬</div><div class="say"><span class="name">분광 담당</span>“한 가지 더 이상한 게 있습니다. 3C 273은 밝기가 <b>며칠 사이에</b> 눈에 띄게 달라져요. 은하는 지름이 10만 광년이나 되는데, 그렇게 큰 것이 며칠 만에 한꺼번에 밝아졌다 어두워질 수 있나요?”</div></div>
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">천문대장</span>“없습니다. 신호는 아무리 빨라도 <b>빛의 속도</b>를 넘지 못하니까요. 한 천체가 통째로 밝기를 바꾸려면 한쪽 끝의 소식이 반대쪽 끝까지 가야 합니다. 그러니 그 천체의 크기는 <b>밝기가 변하는 데 걸리는 시간 × 빛의 속도</b>보다 클 수 없습니다. 이것만으로 크기를 잴 수 있어요.”</div></div>
+          <div class="pv" data-key="p3-5"><p class="pv-q">밝기가 눈에 띄게 변하는 데 걸리는 시간을 더 짧게 하면, 중심부의 최대 크기는 어떻게 될까요?</p><button class="pv-o" data-why="빠르게 변하면 거대한 에너지를 떠올리기 쉽지만, 천체 전체가 한꺼번에 밝기를 바꾸려면 빛이 그 끝에서 끝까지 가야 합니다. 빨리 변할수록 크기는 작아야 합니다.">커진다 — 빨리 깜박일수록 강력하고 큰 천체다</button><button class="pv-o" data-why="신호는 빛보다 빠를 수 없으므로, 밝기가 변하는 시간이 그 천체 크기의 한계를 정합니다.">변광 시간과 크기는 관계없다</button><button class="pv-o" data-ok>작아진다</button><p class="pv-a">중심부의 크기는 <b>빛의 속도 × 밝기가 변하는 시간</b>보다 클 수 없습니다. 며칠 만에 밝기가 변하는 퀘이사의 중심부는 몇 광일 크기에 지나지 않아, 지름 10만 광년의 은하에 견주면 아주 작은 점입니다.</p></div>
           <div class="stage-card">
             <div data-kind="model calc" class="canvas-wrap studio"><canvas id="c-c-var" width="900" height="450"></canvas></div>
             <div class="controls">
@@ -417,6 +423,7 @@
           <div class="story"><div class="who">🧑‍🎓</div><div class="say"><span class="name">관측 동아리 부장</span>“그래도 ‘우리가 중심’ 인 것 같은 느낌은 안 없어지는데요.”</div></div>
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">우주론 담당</span>“그럼 기준을 바꿔 보세요. 아래 격자에서 <b>다른 은하를 눌러</b> 그 은하에 서 보는 겁니다. 은하가 공간 속을 달리는 게 아니라 <b>격자(공간) 자체</b>가 늘어난다는 점에 주의하세요.”</div></div>
           <figure class="hero-art"><img src="img/expanding-lattice.webp" alt="투명한 아크릴 상자 안에 어두운 우주를 담은 모형. 빛나는 가는 선이 상자 전체에 고른 입체 격자를 이루고, 크기가 같은 작은 은하들이 격자의 마디마다 띄엄띄엄 놓여 있다. 가운데에 폭발 지점 같은 것은 없다." width="900" height="900" loading="lazy"><figcaption><b>은하는 제자리에 있는데, 그 사이의 공간이 늘어납니다</b> 그림 속 은하들은 격자의 같은 마디에 그대로 붙어 있습니다. 늘어나는 것은 마디와 마디 사이, 곧 은하 사이의 공간입니다. 은하 하나하나는 중력으로 단단히 묶여 있어서 공간이 늘어나도 커지지 않습니다. <span class="art-note">⚠ 은하의 크기와 은하 사이 간격은 실제 비율이 아닙니다.</span></figcaption></figure>
+          <div class="pv" data-key="p4-3"><p class="pv-q">격자에서 다른 은하를 눌러 기준으로 삼으면, 그 은하에서 본 나머지 은하들은 어떻게 움직일까요?</p><button class="pv-o" data-ok>어느 은하에서 보아도 나머지 은하들이 모두 멀어진다</button><button class="pv-o" data-why="모든 은하가 우리에게서 멀어지니 우리가 중심인 것 같지만, 공간 전체가 고르게 늘어나면 어느 은하에서 보아도 똑같이 모두가 멀어집니다.">우리은하가 팽창의 중심이므로, 다른 은하에서 보면 다가오는 은하도 있다</button><button class="pv-o" data-why="은하는 중력으로 단단히 묶여 있어 공간이 늘어나도 커지지 않습니다. 늘어나는 것은 은하와 은하 사이의 공간입니다.">공간이 늘어나므로 은하 하나하나도 함께 커진다</button><p class="pv-a">공간 자체가 고르게 늘어나므로 어느 은하에서 보아도 다른 은하들이 멀어지고, 멀리 있을수록 빨리 멀어집니다(<b>허블 법칙</b>). 우주 팽창에는 <b>중심이 없습니다</b>.</p></div>
           <div class="stage-card">
             <div class="canvas-wrap" style="background:#e4eaf1"><canvas id="d-c-grid" width="900" height="570"></canvas></div>
             <div class="controls"><button type="button" class="btn primary" id="d-grid-play">⏸ 팽창 멈추기</button></div>
@@ -439,6 +446,7 @@
             <div class="info-card" id="d-bb-info"></div>
           </div>
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">우주론 담당</span>“원자가 만들어지면서 자유로워진 빛은 아직도 우주를 돌아다닙니다. 그동안 공간이 늘어난 만큼 <b>파장도 늘어났지요</b>. 그때 3,000 K 였던 빛이 지금은 몇 K로 보일까요? <b><span data-view="law:빈 변위 법칙">빈의 변위 법칙</span></b>을 다시 꺼낼 차례입니다.”</div></div>
+          <div class="pv" data-key="p4-4"><p class="pv-q">‘그때 이후 우주가 커진 배율’을 키울수록(더 이른 때로 되감을수록), 그때의 복사 온도는 어떻게 될까요?</p><button class="pv-o" data-ok>높아진다</button><button class="pv-o" data-why="빛은 식지 않을 것 같지만, 공간이 늘어나는 만큼 빛의 파장도 늘어납니다. 파장이 길어진 빛은 더 낮은 온도의 복사로 보입니다.">빛의 온도는 변하지 않으므로 그대로다</button><button class="pv-o" data-why="반대입니다. 이른 우주일수록 작아서 빛의 파장이 짧았고, 그만큼 뜨거웠습니다. 우주는 팽창하면서 식어 왔습니다.">낮아진다 — 옛날 우주일수록 차가웠다</button><p class="pv-a">복사 온도는 우주가 커진 배율에 반비례해 낮아집니다. 원자가 생길 무렵의 뜨거운 빛이 우주가 팽창하는 동안 파장이 늘어나 식었고, 지금은 아주 차가운 마이크로파의 <b>우주 배경 복사</b>로 관측됩니다. 이는 <b>대폭발 우주론</b>의 중요한 증거입니다.</p></div>
           <div class="stage-card">
             <div data-kind="model calc" class="canvas-wrap studio"><canvas id="d-c-cmb" width="900" height="440"></canvas></div>
             <div class="controls">
@@ -541,7 +549,7 @@
 </div>
 
 <button class="theme-toggle" id="themeToggle">라이트 모드</button>
-<script src="../assets/theme.js?v=b0f7ed73"></script>
+<script src="../assets/theme.js?v=f0b96aff"></script>
 <script src="../assets/scope.js?v=cecf172a"></script>
 <script src="../assets/kit.js?v=94e3bd47"></script>
 <script src="../assets/story.js?v=cd80882e"></script>
