@@ -481,7 +481,7 @@ function compass(ctx, cx, cy, R, busy) {
     /* 블록 모형: 북반구 대양 하나를 잘라 낸 모형. x = 서(아시아) → 동(아메리카), y = 극(뒤) → 적도(앞).
        윗면 색 = 해수면 수온, 그 위에 떠 있는 바람띠 화살표, 해수면에는 순환 고리를 따라 도는 물 알갱이. */
     var L0 = 470, D0 = 300, ZS = 36, BAND = D0 / 3.5;
-    var I = K.iso({ ox: 300, oy: 140, s: 0.78, L: L0, D: D0 });
+    var I = K.iso({ ox: 300, oy: 140, s: 0.78, L: L0, D: D0, cv: canvas });
     var paintG = cache(canvas, W, H);
     function coastW(y) { return 24 + 8 * Math.sin(y / 23) + 5 * Math.sin(y / 9); }
     function coastE(y) { return L0 - 26 - 7 * Math.sin(y / 19 + 1) - 4 * Math.sin(y / 7); }
@@ -537,11 +537,11 @@ function compass(ctx, cx, cy, R, busy) {
       I.label(c, 10, D0 - 30, zG(10, D0 - 30), "아시아(서쪽)", -24, 26, "#d9f7c8", BX);
       I.label(c, L0 - 10, 40, zG(L0 - 10, 40), "아메리카(동쪽)", 20, -18, "#d9f7c8", BX);
       I.label(c, L0 * 0.6, D0 - 4, ZS, "적도", 18, 34, "#ffd35a", BX);
-      I.label(c, L0 * 0.45, 6, ZS, "극 쪽", 16, -22, "#cfe8ff", BX);
+      if (I.viewName !== "side") I.label(c, L0 * 0.45, 6, ZS, "극 쪽", 16, -22, "#cfe8ff", BX);
       K.warn(c, 16, H - 14, "⚠ 네모난 해분 모식도 · 남반구에서는 도는 방향이 반대", "left");
     }
     function draw() {
-      var key = (wind.polar ? 1 : 0) + "" + (wind.westerlies ? 1 : 0) + (wind.trade ? 1 : 0);
+      var key = (wind.polar ? 1 : 0) + "" + (wind.westerlies ? 1 : 0) + (wind.trade ? 1 : 0) + "|" + (canvas._isoView || "") + (canvas._isoReal ? "R" : "");
       paintG(ctx, key, paintBase);
       var Lp = loops();
       /* 순환 고리: 해수면 위 띠 + 도는 물 알갱이 */
@@ -565,10 +565,11 @@ function compass(ctx, cx, cy, R, busy) {
         /* 서안 경계류: 서쪽 가장자리에서 좁고 빠른 흐름 */
         var wx = cx - rx - 4, yA = lp.cy + lp.ry * 0.7 * (lp.cw ? 1 : -1), yB = lp.cy - lp.ry * 0.7 * (lp.cw ? 1 : -1);
         ctx.save(); ctx.shadowColor = lp.c; ctx.shadowBlur = 8; arr(ctx, I.P(wx, yA, ZS + 2), I.P(wx, yB, ZS + 2), lp.c, 5, 14); ctx.restore();
-        K.pill(ctx, "해류 · " + lp.n + (lp.cw ? " ↻" : " ↺"), I.P(cx, lp.cy, ZS).x, I.P(cx, lp.cy, ZS).y + 5, { s: 13, a: "center", c: lp.cw ? "#ffb3c1" : "#bac8ff" });
+        if (I.viewName !== "side") K.pill(ctx, "해류 · " + lp.n + (lp.cw ? " ↻" : " ↺"), I.P(cx, lp.cy, ZS).x, I.P(cx, lp.cy, ZS).y + 5, { s: 13, a: "center", c: lp.cw ? "#ffb3c1" : "#bac8ff" });
       });
       /* 바람띠: 해수면 위에 떠서 흐르는 바람 */
-      bands().forEach(function (b) {
+      var bs = bands();
+      bs.forEach(function (b) {
         ctx.globalAlpha = b.on ? 1 : 0.16;
         var span = (L0 - 80) / 5, off = b.on ? ((t * 1.6) % span) : 0;
         for (var i = 0; i < 6; i++) {
@@ -578,7 +579,7 @@ function compass(ctx, cx, cy, R, busy) {
           arr(ctx, a, e, "#ffffff", 6.5, 15); arr(ctx, a, e, b.c, 3.4, 11);
         }
         var lp0 = I.P(0, b.y, ZS + 26);
-        K.pill(ctx, "바람 · " + b.name + (b.dir > 0 ? " (동쪽으로)" : " (서쪽으로)"), lp0.x - 12, lp0.y + 5, { s: 12, a: "right", c: b.on ? "#ffffff" : "#9aa6bb", box: [0, 640] });
+        K.pill(ctx, "바람 · " + b.name + (b.dir > 0 ? " (동쪽으로)" : " (서쪽으로)"), lp0.x - 12, lp0.y + 5 - (I.viewName === "side" ? 22 * bs.filter(function (o) { return o.y > b.y; }).length : 0), { s: 12, a: "right", c: b.on ? "#ffffff" : "#9aa6bb", box: [0, 640] });
         ctx.globalAlpha = 1;
       });
       var subT = wind.trade && wind.westerlies, subP = wind.westerlies && wind.polar;
@@ -1351,7 +1352,7 @@ function compass(ctx, cx, cy, R, busy) {
 
     /* 블록 모형: 남북으로 뻗은 해안을 잘라 낸 블록. x = 서(육지) → 동(바다), y = 북(뒤) → 남(앞).
        앞면 = 해안 단면(수온 약층이 해안 쪽에서 솟거나 내려간다), 윗면 = 해수면 수온(용승이면 해안 쪽 찬물 띠), 위에 바람·수송 화살표 */
-    var I = K.iso({ ox: 250, oy: 200, s: 0.8, L: 380, D: 200 }), ZS = 116, XC = 108;
+    var I = K.iso({ ox: 250, get oy() { return 200 - (canvas._isoView === "top" ? 20 : 0); }, s: 0.8, L: 380, D: 200, cv: canvas }), ZS = 116, XC = 108;
     var paintU = cache(canvas, W, H);
     function ground(x) { return x < XC - 14 ? ZS + 16 + 6 * Math.sin(x / 13) : (x < XC ? ZS + 16 - (x - XC + 14) * 1.6 : Math.max(10, ZS - 8 - (x - XC) * 1.5)); }
     function thermo(u, mode) {
@@ -1403,7 +1404,7 @@ function compass(ctx, cx, cy, R, busy) {
     }
     function draw() {
       var ek = ekAz(), off = offshore(), mode = off >= 0.5 ? "up" : (off <= -0.5 ? "down" : "none");
-      paintU(ctx, mode, function (c) { paintBase(c, mode); });
+      paintU(ctx, mode + "|" + (canvas._isoView || "") + (canvas._isoReal ? "R" : ""), function (c) { paintBase(c, mode); });
       var i, BX = [0, 540];
       /* 앞면 흐름 */
       if (mode !== "none") {
@@ -2123,7 +2124,7 @@ function compass(ctx, cx, cy, R, busy) {
     /* ── 블록 모형: 태풍 중심이 앞면(y = D) 가운데에 오도록 잘라 낸 바다 + 대기 ──
        x 0~L (화면 오른쪽 아래로), y 0~D (왼쪽 아래로). 가로 1 km = KS 그림 단위, 높이 1 km = ZK 그림 단위(과장). */
     var DH = 450;
-    var I = K.iso({ ox: 364, oy: 95, s: 0.8, L: 560, D: 220 });
+    var I = K.iso({ ox: 364, get oy() { return 95 - (canvas._isoView === "top" ? 10 : 0); }, s: 0.8, L: 560, D: 220, cv: canvas, exag: 12.9 });
     var L = I.L, D = I.D, XC = L / 2, KS = 280 / 400, ZW = 22, ZK = 9, ZB = ZW + ZK;   /* ZB: 구름 밑면(약 1 km) */
     function sm(a) { a = clamp(a, 0, 1); return a * a * (3 - 2 * a); }
     var ph = 0;                                               /* 구름띠가 도는 각(위에서 볼 때 반시계) */
@@ -2168,7 +2169,7 @@ function compass(ctx, cx, cy, R, busy) {
     }
 
     /* 바탕(스튜디오·바다·구름)은 구름띠가 조금 돌았을 때만 다시 그려 둔다 — 솜뭉치가 많아 매번 그리면 무겁다 */
-    var base = null, basePh = -9;
+    var base = null, basePh = -9, baseV = "";
     function paintBase() {
       var dpr = 2;   /* 캔버스 버퍼(setupCanvas)와 같게 */
       if (!base) { base = document.createElement("canvas"); base.width = Math.round(W * dpr); base.height = Math.round(DH * dpr); }
@@ -2206,11 +2207,11 @@ function compass(ctx, cx, cy, R, busy) {
         }
       }
       ctx.restore();
-      basePh = ph;
+      basePh = ph; baseV = (canvas._isoView || "") + (canvas._isoReal ? "R" : "");
     }
 
     function drawModel() {
-      if (!base || Math.abs(ph - basePh) > 0.03) paintBase();
+      if (!base || Math.abs(ph - basePh) > 0.03 || baseV !== (canvas._isoView || "") + (canvas._isoReal ? "R" : "")) paintBase();
       ctx.drawImage(base, 0, 0, W, DH);
       ctx.save(); ctx.beginPath(); ctx.roundRect(0, 0, W, DH, 14); ctx.clip();
       /* 앞면 단면: 구름 아래 비의 장막 + 잘린 구름 + 빗줄기 */
@@ -2268,8 +2269,8 @@ function compass(ctx, cx, cy, R, busy) {
 
       /* 이름표 */
       var box = [0, W];
-      I.label(ctx, XC, D, ZW + 6 * ZK, "태풍의 눈 · 하강 기류, 하늘이 갬", -150, 80, "#bfe6ff", box);
-      I.label(ctx, U(40, 1), D, ZW + 12 * ZK, "눈벽구름 · 가장 강한 상승 기류", 70, -120, "#ffb3c0", box);
+      I.label(ctx, XC, D, ZW + 6 * ZK, "태풍의 눈 · 하강 기류, 하늘이 갬", I.viewName === "side" ? 90 : -150, 80, "#bfe6ff", box);
+      I.label(ctx, U(40, 1), D, ZW + 12 * ZK, "눈벽구름 · 가장 강한 상승 기류", 70, I.viewName === "side" ? -70 : -120, "#ffb3c0", box);
       /* 나선 강우대: 지금 띠가 지나는 자리(230 km)를 찾아 가리킨다 */
       for (k = -2; k <= 3; k++) {
         var th = ph - (230 - 120) / 76 + k * Math.PI, sx = XC + 230 * KS * Math.cos(th), sy = D - 230 * KS * Math.sin(th);
@@ -2277,7 +2278,7 @@ function compass(ctx, cx, cy, R, busy) {
       }
       I.label(ctx, U(250, -1), D, ZW * 0.5, "따뜻한 바다 · 수증기가 연료", -40, 40, "#ffd9a8", box);
       var sp = I.P(U(300, -1), D, ZW + 0.5 * ZK); K.pill(ctx, "수렴 · 빨려 드는 바람", sp.x - 6, sp.y - 12, { s: 11, a: "right", c: "#ffc98a", box: box });
-      var op = I.P(U(260, -1), D, ZW + 12.4 * ZK); K.pill(ctx, "발산 · 꼭대기에서 퍼져 나감", op.x - 8, op.y - 6, { s: 11, a: "right", c: "#9fd3ff", box: box });
+      var op = I.P(U(260, -1), D, ZW + 12.4 * ZK); K.pill(ctx, "발산 · 꼭대기에서 퍼져 나감", op.x - 8, Math.min(op.y - 6, sp.y - 36), { s: 11, a: "right", c: "#9fd3ff", box: box });
       var tp = I.P(XC + r * KS, D, ZW + 16 * ZK);
       K.pill(ctx, "지금 보는 거리 " + r + " km", tp.x, tp.y - 6, { s: 12, a: "center", c: "#ffd35a", box: box });
 
@@ -2287,7 +2288,7 @@ function compass(ctx, cx, cy, R, busy) {
         "나선 강우대": ["나선 강우대 — 띠 모양 비바람", "#ffd35a"], "태풍 바깥 영역": ["태풍 바깥 — 바람이 잦아든다", "#ffffff"] }[z0];
       K.bigText(ctx, HL[0], 22, 50, 26, HL[1]);
       K.bigText(ctx, r + " km · 풍속 " + vv.toFixed(1) + " m/s · " + pres(r).toFixed(0) + " hPa", 22, 82, 17, "#ffffff");
-      K.warn(ctx, W - 14, 28, "⚠ 높이는 약 13배 과장 · 구름띠는 모식적", "right");
+      K.warn(ctx, W - 14, 28, I.real ? "📏 실제 비율 (높이 = 가로 축척) · 구름띠는 모식적" : "⚠ 높이는 약 13배 과장 · 구름띠는 모식적", "right");
       K.t(ctx, "상륙할 때 매미의 중심 기압은 954 hPa 이었습니다. 그날 제주에서는 최대 순간 풍속 60.0 m/s가 기록되었습니다.", 22, DH - 14, { s: 11, c: "#4a5872" });
     }
 

@@ -1750,7 +1750,8 @@ function msLogL(T) {
     var canvas = $("d-c-grid"), ctx = window.setupCanvas(canvas), W = canvas._w, H = canvas._h;
     var COLS = 5, ROWS = 3, ref = 7;
     var LW = 626;                                            /* 왼쪽 진열장 칸 폭 */
-    var I = K.iso({ ox: 318, oy: 300, s: 0.74, L: 400, D: 240 });
+    var I = K.iso({ ox: 318, oy: 300, s: 0.74, L: 400, D: 240, cv: canvas });
+    function gridTY() { return I.viewName === "top" ? -18 : 0; }   /* 위에서 볼 때 블록 아래 끝이 잘리지 않게 */
     var L = I.L, D = I.D, HZ = 240, CX = L / 2, CY = D / 2, CZ = HZ / 2;
     var EX = 54, EY = 60, AMIN = 1, AMAX = 1.7;
     var DZ = [-30, 24, -8, 36, -22, 14, -40, 4, 30, -14, 40, -26, 10, -36, 20];   /* 은하마다 정해진 높이(공간 좌표, 늘어나도 칸은 그대로) */
@@ -1791,6 +1792,7 @@ function msLogL(T) {
       ctx.clearRect(0, 0, W, H);
       var fl = I.P(L, D, 0);
       K.studio(ctx, 0, 0, LW, H, { x: fl.x - 52, y: fl.y - 30, rx: 270, ry: 44 });
+      ctx.save(); ctx.translate(0, gridTY());
       ctx.save(); ctx.beginPath(); ctx.roundRect(0, 0, LW, H, 14); ctx.clip();
 
       /* 상자 안 = 어두운 우주 */
@@ -1824,7 +1826,7 @@ function msLogL(T) {
         ctx.setLineDash([3, 4]); ctx.strokeStyle = "rgba(200,215,255,.35)"; ctx.lineWidth = 1;
         ctx.beginPath(); ctx.moveTo(f.x, f.y); ctx.lineTo(p.x, p.y); ctx.stroke(); ctx.setLineDash([]);
         galaxy(p.x, p.y, isR, g.tilt);
-        g.sx = p.x; g.sy = p.y;
+        g.sx = p.x; g.sy = p.y + gridTY();
         if (!isR) {                                          /* 기준 은하에서 본 후퇴: 거리에 비례 */
           var e = I.P(q.x + (q.x - R.x) * 0.22, q.y + (q.y - R.y) * 0.22, q.z + (q.z - R.z) * 0.22);
           var dx = e.x - p.x, dy = e.y - p.y, dl = Math.hypot(dx, dy);
@@ -1853,7 +1855,8 @@ function msLogL(T) {
       /* 이름표 */
       var box2 = [0, LW];
       lbl(ctx, "여기서 본다", RP.x, RP.y - 24, { s: 11, a: "center", c: KC.green, box: box2 });
-        I.label(ctx, L - 50, D - 30, 0, "늘어나는 격자(공간)", 40, 44, "#bfe6ff", box2);
+        I.label(ctx, L - 50, D - 30, 0, "늘어나는 격자(공간)", I.viewName === "top" ? 56 : 40, I.viewName === "top" ? -14 : 44, "#bfe6ff", box2);
+      ctx.restore();
       K.warn(ctx, LW - 14, 30, "⚠ 은하 크기·간격은 실제 비율이 아님", "right");
       lbl(ctx, "공간이 늘어난 정도 × " + a.toFixed(2), LW - 14, 62, { s: 12, a: "right", c: KC.yellow, box: box2 });
       lbl(ctx, "→ 화살표: 멀어지는 빠르기", LW - 14, 92, { s: 11, a: "right", c: KC.red, box: box2 });

@@ -466,7 +466,7 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
     var SNAME = ["조용한 용암류 분출", "중간 — 용암돔과 작은 폭발", "폭발적 분출 (화산재 · 화쇄류)"];
 
     /* 화산 단면 블록: 화구가 앞면에 오도록 잘라, 앞면에 마그마 굄과 화도가 보인다. 분출 양식마다 화산 모양이 다르다 */
-    var LW = 560, IV = K.iso({ ox: 222, oy: 212, s: 0.8, L: 340, D: 160 }), GZ = 70, VX = 170;
+    var LW = 560, IV = K.iso({ ox: 222, oy: 212, s: 0.8, L: 340, D: 160, cv: canvas }), GZ = 70, VX = 170;
     var SHAPE = [{ h: 30, r: 168, p: 1.5 }, { h: 64, r: 104, p: 1 }, { h: 118, r: 112, p: 1.55 }];
     function zOf(x, y, st) {
       var sh = SHAPE[st], d = Math.sqrt((x - VX) * (x - VX) + (y - IV.D) * (y - IV.D)), f = Math.max(0, 1 - d / sh.r);
@@ -1288,8 +1288,8 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
     /* ── 블록 모형: x 는 절벽을 따라(왼쪽 위 → 오른쪽 아래), y 는 깊이 방향.
           땅(용암층)은 y 0~DL, 그 앞(y DL~D)은 바다·강·숲 비탈. 기둥 굵기는 지름 1 m ≈ 42 그림 단위(과장) ── */
     var DH = 410;                                         /* 모형 칸 높이(아래는 읽음판) */
-    var I = K.iso({ ox: 470, oy: 155, s: 0.66, L: 460, D: 260 });
-    var DL = 150, I2 = K.iso({ ox: 470, oy: 155, s: 0.66, L: 460, D: DL });
+    var I = K.iso({ ox: 470, oy: 155, s: 0.66, L: 460, D: 260, cv: canvas });
+    var DL = 150, I2 = K.iso({ ox: 470, oy: 155, s: 0.66, L: 460, D: DL, cv: canvas });
     var L = I.L, D = I.D, Z_FL = 22, Z_BASE = 42, ZW = 36;
     var cool = 1, playing = false, ph = 0;
     var SHORT = ["제주 중문·대포", "한탄강", "무등산 서석대·입석대"];

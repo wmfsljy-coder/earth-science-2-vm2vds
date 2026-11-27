@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>지층 순서 퍼즐 — 지층과 지질 시대</title>
+<link rel="icon" href="https://wmfsljy-coder.github.io/science-teacher-hub-qtrqwc/assets/hub-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/theme.css?v=fdc7cbfc">
+<style>
+  .g-wrap { max-width: 1100px; margin: 0 auto; padding: 18px 18px 40px; box-sizing: border-box; }
+  .g-top { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; font-weight: 800; font-size: 14px; }
+  .g-back { color: #1c7ed6; text-decoration: none; font-weight: 900; }
+  .g-back:hover { text-decoration: underline; }
+  .g-unit { color: var(--mist); }
+  .g-head h1 { font-size: 30px; margin: 10px 0 4px; letter-spacing: -.02em; color: var(--ink); }
+  .g-sub { margin: 0 0 12px; color: var(--mist); font-size: 15px; line-height: 1.6; }
+  .g-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+  .g-levels { display: flex; flex-wrap: wrap; gap: 8px; }
+  .g-lv { font: inherit; font-weight: 900; font-size: 15px; padding: 8px 14px; border-radius: 14px; border: 2px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; }
+  .g-lv small { font-size: 12px; font-weight: 700; color: var(--mist); }
+  .g-lv[aria-pressed=true] { background: #1e3a8a; border-color: #1e3a8a; color: #fff; }
+  .g-lv[aria-pressed=true] small { color: #c7d2fe; }
+  .g-lv:disabled { opacity: .5; cursor: not-allowed; }
+  .g-play { padding: 16px 20px 20px; }
+  .g-goal { font-size: 18px; font-weight: 800; line-height: 1.6; margin: 0 0 10px; color: var(--ink); }
+  .g-story { background: #fffbea; border: 2px solid #f3d27a; border-radius: 14px; padding: 12px 16px; font-size: 15.5px; line-height: 1.75; color: #3b2f0b; margin-bottom: 6px; }
+  .g-story ol, .g-story ul { margin: 6px 0 0; padding-left: 24px; }
+  .g-cap { font-size: 13.5px; font-weight: 900; color: var(--mist); margin: 12px 0 6px; }
+  .g-line { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .g-slot { position: relative; min-width: 124px; min-height: 52px; padding: 4px 6px 4px 22px; border: 2px dashed #94a3b8; border-radius: 14px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; background: rgba(148,163,184,.08); }
+  .g-num { position: absolute; left: 7px; top: 4px; font-size: 11px; font-weight: 900; color: #64748b; }
+  .g-ph { font-size: 13px; color: #94a3b8; font-weight: 800; }
+  .g-slot.filled { border-style: solid; border-color: #cbd5e1; }
+  .g-slot.good { border-color: #0f9f76; background: #e7f7f0; }
+  .g-slot.bad { border-color: #e8590c; background: #fff1e6; }
+  .g-over { outline: 3px solid #1c7ed6; outline-offset: 2px; background: #e0f2fe !important; }
+  .g-arr { color: #94a3b8; font-weight: 900; }
+  .g-tray { display: flex; flex-wrap: wrap; gap: 8px; min-height: 56px; padding: 8px; border-radius: 14px; background: rgba(148,163,184,.14); align-items: center; }
+  .g-chip { display: inline-flex; align-items: center; gap: 7px; padding: 10px 14px; border-radius: 12px; border: 2px solid #cbd5e1; background: #fff; color: #12203a; font: inherit; font-weight: 800; font-size: 15.5px; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; box-shadow: 0 2px 0 rgba(15,23,42,.08); }
+  .g-chip:hover, .g-chip:focus-visible { border-color: #1c7ed6; }
+  .g-slot .g-chip { padding: 8px 10px; font-size: 14.5px; }
+  .g-sw { display: inline-block; width: 18px; height: 18px; border-radius: 5px; border: 1px solid rgba(0,0,0,.3); flex: none; }
+  .g-ic { font-style: normal; font-size: 16px; width: 18px; text-align: center; flex: none; }
+  .g-ghost { position: fixed; z-index: 1000; pointer-events: none; transform: translate(-50%, -60%) rotate(-2deg); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+  .g-lift { opacity: .35; }
+  .g-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .g-step { width: 100%; text-align: left; font: inherit; font-size: 15.5px; font-weight: 700; padding: 10px 14px; border-radius: 12px; border: 2px solid #cbd5e1; background: #fff; color: #12203a; cursor: pointer; }
+  .g-step.sel { border-color: #e8590c; background: #fff4e6; }
+  .g-step.fix { border-color: #0f9f76; background: #e7f7f0; }
+  .g-prs { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+  .g-pr { text-align: left; font: inherit; padding: 10px 12px; border-radius: 12px; border: 2px solid #cbd5e1; background: #fff; color: #12203a; cursor: pointer; line-height: 1.35; }
+  .g-pr b { display: block; font-size: 15px; }
+  .g-pr small { font-size: 12.5px; color: #5c7086; font-weight: 700; }
+  .g-pr.sel { border-color: #1e3a8a; background: #eef2ff; }
+  .g-btns { margin-top: 14px; }
+  .g-fb { margin-top: 12px; font-size: 15.5px; line-height: 1.75; border-radius: 14px; color: #12203a; }
+  .g-fb:not(:empty) { padding: 14px 16px; background: #eef1f5; border: 2px solid #dfe5ee; }
+  .g-fb.ok { background: #e7f7f0; border-color: #9fdcc4; }
+  .g-fb.bad { background: #fff4e6; border-color: #f6c69c; }
+  .g-sum { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: #fff; border: 2px dashed #0f9f76; }
+  .g-foot { margin-top: 16px; font-size: 13px; color: var(--mist); display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; line-height: 1.6; }
+  .g-wipe { font: inherit; font-size: 12.5px; font-weight: 800; border: 1.5px solid var(--line); background: transparent; color: var(--mist); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  [hidden] { display: none !important; }
+  @media (max-width: 600px) {
+    .g-wrap { padding: 12px 10px 30px; }
+    .g-head h1 { font-size: 24px; }
+    .g-play { padding: 12px; }
+    .g-goal { font-size: 16px; }
+    .g-lv { padding: 6px 10px; font-size: 14px; }
+    .g-slot { min-width: 0; flex: 1 1 42%; }
+    .g-arr { display: none; }
+    .g-chip { font-size: 14.5px; padding: 9px 11px; }
+  }
+</style>
+</head>
+<body>
+<div class="g-wrap">
+  <header class="g-head">
+    <div class="g-top"><a class="g-back" href="./">← 단원으로 돌아가기</a><span class="g-unit">지구과학Ⅱ · Ⅱ-1 지층과 지질 시대 · 상대연령</span></div>
+    <h1>🎮 지층 순서 퍼즐</h1>
+    <p class="g-sub">절벽 단면을 읽고 지층과 사건이 일어난 순서를 맞혀 보세요. 지층 누중·수평 퇴적·관입·부정합의 법칙과 포획암·기저 역암만 있으면 풀 수 있습니다.</p>
+    <div class="g-bar"><div class="g-levels" id="g-levels"></div><button type="button" class="btn" id="g-reset">↺ 다시 하기</button></div>
+  </header>
+  <div class="stage-card">
+    <div class="canvas-wrap" style="background:#e4eaf1"><canvas id="g-cv" width="900" height="560" aria-label="지층 단면 블록 모형과 판정 카드. 판정 내용은 아래 글로도 나옵니다."></canvas></div>
+    <div class="g-play">
+      <p class="g-goal" id="g-goal"></p>
+      <div class="g-story" id="g-story" hidden></div>
+      <div id="g-seqbox">
+        <div class="g-cap" id="g-cap1"></div>
+        <div class="g-line" id="g-line"></div>
+        <div class="g-cap" id="g-cap2"></div>
+        <div class="g-tray" id="g-tray"></div>
+      </div>
+      <div id="g-errbox" hidden>
+        <div class="g-cap">친구가 복원한 순서 — 틀린 단계 하나를 누르세요</div>
+        <ol class="g-steps" id="g-steps"></ol>
+        <div class="g-cap">왜 틀렸나요? 근거가 되는 법칙을 고르세요</div>
+        <div class="g-prs" id="g-prs"></div>
+      </div>
+      <div class="btn-row g-btns">
+        <button type="button" class="btn primary" id="g-check">판정하기</button>
+        <button type="button" class="btn" id="g-clear">비우기</button>
+        <button type="button" class="btn" id="g-show" hidden>정답 보기</button>
+        <button type="button" class="btn primary" id="g-next" hidden>다음 ▶</button>
+      </div>
+      <div class="g-fb" id="g-fb" aria-live="polite"></div>
+    </div>
+  </div>
+  <footer class="g-foot"><span>⚠ 그림의 지층 두께·기울기는 보기 쉽게 과장했습니다. 실제 절벽은 풍화되거나 흙·풀에 덮여 일부만 드러나는 일이 많습니다. 진행 기록은 이 기기에만 저장됩니다.</span><button type="button" class="g-wipe" id="g-wipe">기록 지우기</button></footer>
+</div>
+<script src="../assets/theme.js?v=f0b96aff"></script>
+<script src="../assets/kit.js?v=abf6f6c9"></script>
+<script src="game-strata.js?v=1"></script>
+</body>
+</html>

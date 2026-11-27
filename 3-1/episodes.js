@@ -325,7 +325,7 @@ function drawSky(ctx, box, lamC, spanDeg, opts) {
     }
 
     /* 땅 블록 + 유리 하늘 돔 모형. 관측자는 남쪽(화면 안쪽)을 바라본다 → 동 = 화면 왼쪽, 서 = 화면 오른쪽 */
-    var I = K.iso({ ox: 310, oy: 150, s: 0.75, L: 280, D: 280 });
+    var I = K.iso({ ox: 310, oy: 150, s: 0.75, L: 280, D: 280, cv: canvas });
     var DCX = 140, DCY = 140, RD = 140, SQ = Math.SQRT1_2;
     var DS = [-SQ, -SQ], DW = [SQ, -SQ];
     function domeP(alt, az, f) {
@@ -400,7 +400,7 @@ function drawSky(ctx, box, lamC, spanDeg, opts) {
         var nx = altAz((Hh + 0.6) * 15);
         if (nx.alt > 0) { var np = domeP(nx.alt, nx.az, SF), dx = np.x - sp.x, dy = np.y - sp.y, dn = Math.hypot(dx, dy) || 1; K.arrow(ctx, { x: sp.x + dx / dn * 12, y: sp.y + dy / dn * 12 }, { x: sp.x + dx / dn * 44, y: sp.y + dy / dn * 44 }, "#ff9a3c", 3, 10); }
         K.glow(ctx, sp.x, sp.y, 6, "rgba(255,230,163,.98)", 4.2); K.spikes(ctx, sp.x, sp.y, 16, .7);
-        K.pill(ctx, "★ 이 별 · 고도 " + s.alt.toFixed(0) + "°", sp.x, sp.y - 20, { s: 12, a: "center", c: "#ffe6a3", box: [0, LW] });
+        K.pill(ctx, "★ 이 별 · 고도 " + s.alt.toFixed(0) + "°", sp.x, sp.y + (I.viewName === "top" ? 28 : -20), { s: 12, a: "center", c: "#ffe6a3", box: [0, LW] });
       } else {
         ctx.fillStyle = "rgba(120,130,150,.7)"; ctx.beginPath(); ctx.arc(foot.x, foot.y, 5, 0, 6.2832); ctx.fill();
         K.pill(ctx, "★ 지평선 아래", foot.x, foot.y + 26, { s: 12, a: "center", c: "#c7cfe6", box: [0, LW] });
@@ -1284,7 +1284,7 @@ function drawSky(ctx, box, lamC, spanDeg, opts) {
 
     /* 진열장: x 0~L (화면 오른쪽 아래), y 0~D (왼쪽 아래), z 위. 태양은 −x 쪽(왼쪽 위) 아주 멀리 */
     var DH = 440;
-    var I = K.iso({ ox: 400, oy: 192, s: 0.62, L: 340, D: 340 });
+    var I = K.iso({ ox: 400, oy: 192, s: 0.62, L: 340, D: 340, cv: canvas });
     var L = I.L, D = I.D, HZ = 230, Z0 = 115, CX = L / 2, CY = D / 2, RO = 140;
     var RE = 8.5 / 0.62;                /* 지구 반지름(그림 단위, 화면 8.5 px) */
     var KZ = RE / SOL_LIMIT;            /* 황위 1°를 몇 그림 단위 높이로 — 일식 한계 황위에서 달 그림자가 지구 가장자리에 닿는다 */

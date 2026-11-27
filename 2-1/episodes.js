@@ -341,7 +341,7 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
     };
     /* 무늬 그림(숨은 캔버스 400×260)을 암석 블록의 앞면에 붙인다 */
     var TOP = 0, BOT = 260, LEFT = 0, RIGHT = 400, TX = offCanvas(400, 260);
-    var I = K.iso({ ox: 262, oy: 208, s: 0.75, L: 360, D: 120 }), ZT = 220;
+    var I = K.iso({ ox: 262, oy: 208, s: 0.75, L: 360, D: 120, cv: canvas }), ZT = 220;
     function PY(u) { return flip ? (BOT - u * (BOT - TOP)) : (TOP + u * (BOT - TOP)); }
 
     function rock(x, y, w, h, c0, c1, seed) {
@@ -356,6 +356,7 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
       var main = ctx; ctx = TX.x; pattern(); ctx = main;
       var LW = 600, box = [0, LW];
       K.studio(ctx, 0, 0, LW, H, { x: I.P(I.L, I.D, 0).x - 60, y: I.P(I.L, I.D, 0).y - 34, rx: 270, ry: 44 });
+      ctx.save(); if (I.viewName === "top") ctx.translate(0, -24);   /* 위에서 볼 때 블록 아래 끝이 잘리지 않게 */
       ctx.save(); ctx.beginPath(); ctx.roundRect(0, 0, LW, H, 14); ctx.clip();
       faceImg(ctx, I, "front", TX.c, ZT);
       faceImg(ctx, I, "right", TX.c, ZT, TX.c.width - 6, 6);           /* 오른쪽 면: 앞면 끝의 무늬이 안쪽으로 이어진다 */
@@ -369,6 +370,7 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
       /* 위·아래 표시 */
       I.label(ctx, I.L, I.D * .5, ZT - 12, "그림의 위쪽", 34, -12, KC.ink, box);
       I.label(ctx, I.L, I.D * .5, 14, "그림의 아래쪽", 34, 14, KC.ink, box);
+      ctx.restore();
       if (flip) {
         K.bigText(ctx, NAME[str], 18, 52, 30, "#ffffff");
         K.bigText(ctx, "⟳ 뒤집힌 지층", 18, 86, 19, "#ffb36b");
@@ -808,10 +810,13 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
     }
     /* 절벽 블록 모형: 앞면 = 원래 단면(x 140~700, y 60~470)을 그린 숨은 캔버스. z = (470 − y) × KZ */
     var TX = offCanvas(560, 410), KZ = 0.82, ZT = 410 * KZ, LW = 630;
-    var I = K.iso({ ox: 282, oy: 292, s: 0.72, L: 560, D: 130 });
+    var I = K.iso({ ox: 282, oy: 292, s: 0.72, L: 560, D: 130, cv: canvas });
     function FP(x, y) { return I.P(x - 140, I.D, (470 - y) * KZ); }   /* 원래 단면 좌표 → 화면 */
+    function secTY() { return I.viewName === "top" ? -20 : 0; }   /* 위에서 볼 때 블록 아래 끝이 잘리지 않게 */
     function unproject(p) {                                          /* 화면 → 원래 단면 좌표(앞면 밖이면 빈 값) */
-      var s = I.s, C = 0.866, u = (p.x - 282 + C * s * I.D) / (C * s), z = (0.5 * s * u + 292 + 0.5 * s * I.D - p.y) / s;
+      /* 보는 방법이 바뀌어도 맞게: 앞면의 두 방향(u, z)으로 거꾸로 푼다 */
+      var o = I.P(0, I.D, 0), pu = I.P(1, I.D, 0), pz = I.P(0, I.D, 1), ux = pu.x - o.x, uy = pu.y - o.y, zx = pz.x - o.x, zy = pz.y - o.y;
+      var qx = p.x - o.x, qy = p.y - secTY() - o.y, dt = ux * zy - uy * zx, u = (qx * zy - qy * zx) / dt, z = (ux * qy - uy * qx) / dt;
       if (u < 0 || u > I.L || z < 0 || z > ZT) return { x: -1, y: -1 };
       return { x: 140 + u, y: 470 - z / KZ };
     }
@@ -820,6 +825,7 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
       var main = ctx; ctx = TX.x; ctx.clearRect(0, 0, 560, 410); ctx.save(); ctx.translate(-140, -60); pattern(); ctx.restore(); ctx = main;
       var box = [0, LW], P0 = I.P(I.L, I.D, 0);
       K.studio(ctx, 0, 0, LW, H, { x: P0.x - 120, y: P0.y - 40, rx: 330, ry: 52 });
+      ctx.save(); ctx.translate(0, secTY());
       ctx.save(); ctx.beginPath(); ctx.roundRect(0, 0, LW, H, 14); ctx.clip();
       faceImg(ctx, I, "front", TX.c, ZT);
       faceImg(ctx, I, "right", TX.c, ZT, TX.c.width - 4, 4);
@@ -834,7 +840,7 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
       ctx.restore();
       /* 이름표(화면에 바로 서 있게) */
       var on = function (k) { return sel === k ? KC.yellow : KC.ink; };
-      var lp = function (s, x, y, k, col) { var p = FP(x, y); K.pill(ctx, s, p.x, p.y, { s: 12, c: sel === k ? KC.yellow : (col || KC.ink), box: box }); };
+      var lp = function (s, x, y, k, col) { if (I.viewName === "top" && sel !== k) return; var p = FP(x, y);   /* 위에서 보면 앞면이 납작해 고른 층 이름만 */ K.pill(ctx, s, p.x, p.y, { s: 12, c: sel === k ? KC.yellow : (col || KC.ink), box: box }); };
       lp("㉲ 이암 · 건열", 150, 98, "mud");
       lp("㉱ 역암 · 기저 역암", 150, 160, "cong");
       lp("㉮ 석회암", 160, 252, "lime");
@@ -848,6 +854,7 @@ function judgeCard(ctx, x, W, H, title) { K.card(ctx, x, 0, W - x, H, title || "
         ctx.fillStyle = "#111622"; ctx.beginPath(); ctx.arc(p.x, p.y, 2.5, 0, 6.283); ctx.fill();
         K.pill(ctx, L2[3], qx + (L2[1] < 0 ? -4 : 4), qy + 4, { s: 12, a: L2[1] < 0 ? "right" : "left", c: L2[4], box: box });
       });
+      ctx.restore();
       K.bigText(ctx, "절벽 단면", 18, 52, 28, "#ffffff");
       K.bigText(ctx, "눌러서 증거 확인", 18, 86, 17, "#ffd35a");
       K.warn(ctx, 16, H - 16, "⚠ 두께·기울기는 보기 쉽게 과장");

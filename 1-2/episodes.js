@@ -200,7 +200,7 @@ function bar(ctx, x, y, w, h, col, alpha) {
     }
     /* ── 아이소메트릭 블록 모형: x = 먼바다(왼쪽 뒤) → 페루 해안·육지(오른쪽 앞), y = 해안을 따라(뒤 = 북), 앞면 = 해안에 수직인 단면 ── */
     var DH = 440, ZS = 130;                                  /* 모형 칸 높이, 해수면 높이(그림 단위) */
-    var I = K.iso({ ox: 400, oy: 112, s: 0.7, L: 700, D: 200 }), L = I.L, D = I.D;
+    var I = K.iso({ ox: 400, get oy() { return 112 - (canvas._isoView === "top" ? 15 : 0); }, s: 0.7, L: 700, D: 200, cv: canvas }), L = I.L, D = I.D;
     function xc(y) { return 540 + 12 * Math.sin(y / 32 + 0.6); }          /* 해안선 */
     function ground(x, y) {
       var d = xc(y) - x;
@@ -353,11 +353,11 @@ function bar(ctx, x, y, w, h, col, alpha) {
         K.pill(ctx, txt, clamp(p1.x + dx * 14, 330, 870), clamp(p1.y + dy * 14 + (dy > 0 ? 12 : -2), 44, 240), { s: 11.5, a: dx < -0.2 ? "right" : (dx > 0.2 ? "left" : "center"), c: col, box: box });
       }
       if (ws > 0) tipPill(I.P(WC[0], WC[1], ZS + 14), I.P(WC[0] + wv.x * wl, WC[1] + wv.y * wl, ZS + 14), "바람 " + ws.toFixed(1) + " m/s", KC.yellow);
-      tipPill(e0, e1, "에크만 수송", KC.red);
+      tipPill(e0, I.viewName === "side" ? { x: e1.x, y: e1.y + 26 } : e1, "에크만 수송", KC.red);
       I.label(ctx, 640, 70, ground(640, 70), "페루 · 사막 해안", 40, -56, "#f4ead2", box);
       I.label(ctx, 80, D, ZS - 14, "따뜻한 표층수", -60, -10, "#bfe6ff", box);
-      I.label(ctx, 30, D, thermoZ(30), "수온약층", -50, 16, KC.green, box);
-      I.label(ctx, 140, D, 26, "찬 심층수 · 영양염 많음", -100, 34, "#9fc4ff", box);
+      if (I.viewName !== "top") I.label(ctx, 30, D, thermoZ(30), "수온약층", -50, 16, KC.green, box);
+      I.label(ctx, 140, D, 26, "찬 심층수 · 영양염 많음", I.viewName === "side" ? 60 : -100, 34, "#9fc4ff", box);
       if (mode === "up") I.label(ctx, 478, D, 92, ws <= 3 ? "찬물이 조금만 올라온다" : "찬물이 올라온다 — 연안 용승", -40, 104, KC.blue, box);
       else if (mode === "down") I.label(ctx, 478, D, 92, "표층수가 가라앉는다 — 연안 침강", -40, 104, KC.orange, box);
       else K.pill(ctx, "표층 수송이 해안과 나란합니다", 520, 412, { s: 12, a: "center", c: KC.ink, box: box });
@@ -435,7 +435,7 @@ function bar(ctx, x, y, w, h, col, alpha) {
        앞면 = 적도 단면(따뜻한 표층수 / 수온 약층 / 찬 심층수), 윗면 = 해수면 수온 색 + 서쪽 섬 + 동쪽 안데스, 위 = 워커 순환 고리와 강수대 구름.
        무역풍이 약해지면 수온 약층은 평평해진다(거꾸로 기울지는 않는다). */
     var L = 560, D = 130, ZB = 14, ZS = 128, HW = ZS - ZB, YL = D * 0.56;
-    var I = K.iso({ ox: 250, oy: 226, s: 0.74, L: L, D: D });
+    var I = K.iso({ ox: 250, get oy() { return 226 - (canvas._isoView === "top" ? 38 : 0); }, s: 0.74, L: L, D: D, cv: canvas });
     var paintE = cache(canvas, W, H);
     function sm(u) { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); }
     function dW() { return (clamp(240 + 52 * k, 170, 322) - 160) / 170; }
@@ -486,7 +486,7 @@ function bar(ctx, x, y, w, h, col, alpha) {
     }
     function draw() {
       var a = anom(), ph = phase(), i;
-      paintE(ctx, k.toFixed(2), paintBase);
+      paintE(ctx, k.toFixed(2) + "|" + (canvas._isoView || "") + (canvas._isoReal ? "R" : ""), paintBase);
       var BX = [0, 640], kk = clamp(k / 1.7, 0, 1);
       /* 물결 */
       ctx.strokeStyle = "rgba(255,255,255,.5)"; ctx.lineWidth = 1;
@@ -524,7 +524,7 @@ function bar(ctx, x, y, w, h, col, alpha) {
       I.label(ctx, 60, D, ZS - 22, "따뜻한 표층수", -26, 60, "#ffd9a8", BX);
       I.label(ctx, 250, D, thermo(250), "수온 약층", -20, 74, "#ffffff", BX);
       I.label(ctx, 150, D, ZB + 26, "차가운 심층수", -26, 50, "#cfe8ff", BX);
-      if (k >= 0.6) I.label(ctx, L - 26, D, ZB + 50, "적도 용승", 40, 30, "#bfe8ff", BX);
+      if (k >= 0.6) I.label(ctx, L - 26, D, ZB + 50, "적도 용승", 40, I.viewName === "top" ? -30 : 30, "#bfe8ff", BX);
       I.label(ctx, 30, 104, landZ(30, 104), "인도네시아", -30, -8, "#d9f7c8", BX);
       I.label(ctx, L - 26, 22, landZ(L - 26, 22), "페루 · 안데스", 16, -24, "#f4e6c4", BX);
       I.label(ctx, xR + 40, YL, z1, "워커 순환", -14, -30, "#e8ecff", BX);
